@@ -1,0 +1,65 @@
+
+
+#
+# Editors
+#
+
+# Non-login, non-interactive shell
+if [[ "$SHLVL" -eq 1 && ! -o LOGIN ]]
+then
+	export EDITOR='vim'
+	export VISUAL='vim'
+	export PAGER='less'
+else
+	export EDITOR='subl -w'
+fi
+
+
+
+#
+# Paths
+#
+
+# XDG directories
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_DATA_HOME=$HOME/.local/share
+export XDG_BIN_HOME=$HOME/.local/bin
+export XDG_LIB_HOME=$HOME/.local/lib
+export XDG_CACHE_HOME=$HOME/.cache
+
+export PATH="$XDG_BIN_HOME:$PATH"
+
+
+
+#
+# XDG compliancy fixes
+# much of this is borrowed from `github.com/woegjiub/.config`
+#
+export GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
+export GIT_SSH_COMMAND="ssh -F $XDG_CONFIG_HOME/ssh/config "$@""
+export YADM_DIR="$XDG_DATA_HOME/yadm"
+export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+export ZIM_HOME="$ZDOTDIR/zim"
+
+
+#
+# Aliase based env config
+#
+alias scp="scp -F $XDG_CONFIG_HOME/ssh/config"
+alias tmux="tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf"
+
+
+#
+# SSH
+#
+if [ -s "$XDG_CONFIG_HOME/ssh/config" ]
+then
+    SSH_CONFIG="-F $XDG_CONFIG_HOME/ssh/config"
+fi
+
+alias ssh="ssh $SSH_CONFIG "
+
+# Yubikey via gpg-agent
+export "GPG_TTY=$(tty)"
+export "SSH_AUTH_SOCK=${GNUPGHOME}/S.gpg-agent.ssh"
+
