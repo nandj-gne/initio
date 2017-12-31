@@ -25,5 +25,3 @@
     name: "{{current_user.stdout}}"
     shell: "{{zsh_path.stdout}}"
   become: true
-
-# shell: chsh -s `which zsh`
