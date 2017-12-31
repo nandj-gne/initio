@@ -1,0 +1,45 @@
+---
+- name: Clone yadm
+  git: >
+    repo={{yadm_repo}}
+    dest="{{xdg.local}}/lib/yadm"
+
+- name: Clone Zim
+  git: >
+    repo={{zim_repo}}
+    dest="{{xdg.config}}/zsh/zim"
+
+- name: Link yadm bin
+  file:
+    src: "{{yadm.bin}}"
+    dest: "{{xdg.local}}/bin/yadm"
+    state: link
+
+
+#
+# Apply dotfiles
+#
+
+- stat:
+    path: "{{initio.tmp}}/.git/config"
+  register: cached_repo
+
+- stat:
+    path: "{{yadm.dir}}/repo.git/config"
+  register: yadm_repo
+
+- name: Load initio from repo
+  shell: "{{yadm.bin}} -Y {{yadm.dir}} clone {{initio_repo}}"
+  when: not yadm_repo.stat.exists and not cached_repo.stat.exists
+
+- name: Load initio from local cache
+  shell: "{{yadm.bin}} -Y {{yadm.dir}} clone {{initio.tmp}}"
+  when: not yadm_repo.stat.exists and cached_repo.stat.exists
+
+- shell: "which zsh"
+  register: zsh_path
+
+- name: Zmanage update
+  shell: "source {{user_home}}/.zshrc && zmanage update"
+  args:
+     executable: "{{zsh_path.stdout}}"

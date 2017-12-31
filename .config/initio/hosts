@@ -1,0 +1,17 @@
+[local]
+localhost
+
+[laptop]
+zebra.zoo
+#cobra.zoo
+
+[headnode]
+#orca.zoo
+
+[fileserver]
+orca.zoo
+#bessie.zoo
+
+[compute]
+husky.zoo
+#lykos.zoo

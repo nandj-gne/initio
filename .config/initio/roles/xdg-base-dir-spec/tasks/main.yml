@@ -1,0 +1,18 @@
+---
+- name: Create XDG config
+  file:
+    path: "{{user_home}}/.config"
+    state: directory
+
+- name: Create XDG locals
+  file: 
+    path: "{{user_home}}/.local" 
+    state: directory
+
+- file: 
+    path: "{{user_home}}/.local/{{item}}"
+    state: directory
+  with_items:
+    - lib
+    - bin
+    - share

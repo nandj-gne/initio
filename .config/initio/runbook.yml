@@ -1,0 +1,42 @@
+---
+#
+# Provision components of infrastructure
+#
+- hosts: all
+  strategy: debug
+
+  vars_files:
+    - config.yml
+
+#
+# Prompt for endpoint
+#
+  vars_prompt:
+    - name: "endpoint_type"
+      prompt: |
+        Endpoint type?:
+        1) laptop
+        2) headnode
+        3) fileserver
+        4) compute
+      private: no
+
+  tasks:
+    - set_fact: endpoint=laptop
+      when: ( endpoint_type == "1" )
+    - set_fact: endpoint=headnode
+      when: ( endpoint_type == "2" )
+    - set_fact: endpoint=fileserver
+      when: ( endpoint_type == "3" )
+    - set_fact: endpoint=compute
+      when: ( endpoint_type == "4" )
+
+
+#
+# Common provisioning
+#
+  roles:
+    - xdg-base-dir-spec
+    - zsh
+    - dotfiles
+

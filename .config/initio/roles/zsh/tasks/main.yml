@@ -1,0 +1,29 @@
+---
+
+- include_role:
+    name: geerlingguy.homebrew
+  when: ansible_distribution == "Darwin"
+
+- apt:
+    name:  "{{ item }}"
+    state: present
+    install_recommends: false
+    update_cache:       true
+    cache_valid_time:   3600
+  with_items:
+    - zsh
+  when: ansible_distribution == "Ubuntu"
+
+- command: which zsh
+  register: zsh_path
+
+- command: whoami
+  register: current_user
+
+- name: Update default shell  
+  user:
+    name: "{{current_user.stdout}}"
+    shell: "{{zsh_path.stdout}}"
+  become: true
+
+# shell: chsh -s `which zsh`
