@@ -1,0 +1,3 @@
+[submodule ".config/zsh/zim"]
+	path = .config/zsh/zim
+	url = https://github.com/jnand/zim.git
