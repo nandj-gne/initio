@@ -5,6 +5,9 @@ localhost
 zebra.zoo
 #cobra.zoo
 
+[workstation]
+
+
 [headnode]
 #orca.zoo
 

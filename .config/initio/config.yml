@@ -1,4 +1,16 @@
 ---
+#
+# Repositories
+#
 yadm_repo: "https://github.com/jnand/yadm.git"
 zim_repo: "https://github.com/jnand/zim.git"
 initio_repo: "https://github.com/jnand/initio.git"
+
+#
+# Configuration type
+# ------------------ 
+# home - will provision all configs, and use personal repos
+# work - will only provision common configs, and use pub repos
+#
+config_for: home
+
