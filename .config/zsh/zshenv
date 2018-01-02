@@ -41,6 +41,16 @@ export YADM_DIR="$XDG_DATA_HOME/yadm"
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 export ZIM_HOME="$ZDOTDIR/zim"
 
+export ATOM_HOME="$XDG_CONFIG_HOME/Atom"
+export IPYTHONDIR="$XDG_CONFIG_HOME/ipython"
+export LESSHISTFILE="$XDG_DATA_HOME/less/history"
+export MYSQL_HISTFILE="$XDG_DATA_HOME/mysql/history"
+export PIP_CONFIG_FILE="$XDG_CONFIG_HOME/pip/pip.conf"
+export PIP_LOG_FILE="$XDG_DATA_HOME/pip/log"
+export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/pythonrc"
+export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
+
+
 
 #
 # Aliase based env config
