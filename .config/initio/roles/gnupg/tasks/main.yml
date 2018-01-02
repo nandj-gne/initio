@@ -13,3 +13,21 @@
   with_items:
     - gnupg
   when: ansible_distribution in distros.debian
+
+
+- file:
+    path: "{{xdg.config}}/gnupg"
+    state: directory
+
+- name: Symlink gnupg
+  file:
+    src: ".config/gnupg"
+    dest: "{{user_home}}/.gnupg"
+    state: link
+
+- template:
+    src: "{{item}}.j2"
+    dest: "{{user_home}}/.gnupg/{{item}}"
+  with_items:
+    - "gpg.conf"
+    - "gpg-agent.conf"

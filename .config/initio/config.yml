@@ -22,6 +22,10 @@ initio:
   playbooks: "{{playbook_dir}}/playbooks"
 
 
+  gpg:
+    # fingerprint of default key
+    default_key: B83550D23D8D862E335EA5A0A63BEFAD44DC80CC
+
 #
 # Supported Distro
 # ----------------
