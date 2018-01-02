@@ -24,10 +24,13 @@ initio:
 
   zim:
     repo: "https://github.com/jnand/zim.git"
-    
+
   gpg:
     # fingerprint of default key
     default_key: B83550D23D8D862E335EA5A0A63BEFAD44DC80CC
+
+  ssh:
+    secrets_key: "path/to/ssh/private/key"
 
 #
 # Supported Distro
