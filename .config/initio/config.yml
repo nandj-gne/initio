@@ -1,7 +1,7 @@
 ---
 #
 # Repositories
-#
+# ------------
 yadm_repo: "https://github.com/jnand/yadm.git"
 zim_repo: "https://github.com/jnand/zim.git"
 initio_repo: "https://github.com/jnand/initio.git"
@@ -14,3 +14,20 @@ initio_repo: "https://github.com/jnand/initio.git"
 #
 config_for: home
 
+#
+# Initio configs
+# -----------
+initio:
+  tmp: "/tmp/initio"
+  playbooks: "{{playbook_dir}}/playbooks"
+
+
+#
+# Supported Distro
+# ----------------
+distros:
+  mac:
+    - Darwin
+    - MacOSX
+  debian:
+    - Ubuntu

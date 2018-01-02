@@ -3,7 +3,7 @@
 # Provision components of infrastructure
 #
 - hosts: all
-  strategy: debug
+  strategy: linear
   vars:
     endpoints:
       - laptop
@@ -24,6 +24,7 @@
   vars_prompt:
     - name: "endpoint"
       prompt: |
+
         Endpoint type?
         ---------------
         laptop
@@ -31,24 +32,25 @@
         headnode
         fileserver
         compute
+
+      default: "laptop"
       private: no
     - name: "config_for"
       prompt: |
+
         Configure for:
         ---------------
-        * current: {{config_for}}
         home
         work
+
+      default: "home"
       private: no
 
-  tasks:
-    # Sanity check vars_propmts
+  pre_tasks:
     - meta: end_play
       when: endpoint not in endpoints
     - meta: end_play
       when: config_for not in config_fors
-
-
 
 #
 # Common provisioning
@@ -62,6 +64,6 @@
 #
 # Endpoint specifics
 #
-    # - name: Load endpoint playbook
-      # include: "{{playbook_dir}}/playbooks/{{endpoint}}.yml"
-      # when: endpoint is defined
+  tasks:
+    - include: "{{initio.playbooks}}/{{endpoint}}.yml"
+      when: endpoint is defined
