@@ -16,3 +16,4 @@
     - lib
     - bin
     - share
+    - "share/initio"
