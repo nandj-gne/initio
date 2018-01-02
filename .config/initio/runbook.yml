@@ -58,6 +58,7 @@
   roles:
     - xdg-base-dir-spec
     - zsh
+    - gnupg
     - dotfiles
 
 
