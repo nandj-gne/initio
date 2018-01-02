@@ -1,0 +1,26 @@
+[user]
+	name = Justin Nand
+	email = jnand@users.noreply.github.com
+
+[core]
+	excludesfile = ~/.config/git/gitignore
+
+[diff]
+	tool = vimdiff
+
+[difftool]
+	prompt = 0
+
+[merge]
+	tool = vimdiff
+	conflictstyle = diff3
+
+[mergetool "vimdiff3"]
+	cmd = vim -u ~/.vimrc -f -d -c \"wincmd J\" \"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\"
+
+[alias]
+	change-commits = "!f() { VAR=$1; OLD=$2; NEW=$3; shift 3; git filter-branch --env-filter \"if [[ \\\"$`echo $VAR`\\\" = '$OLD' ]]; then export $VAR='$NEW'; fi\" $@; }; f "
+
+	remove-file = "!f() { git filter-branch -f --index-filter \"git rm --cached --ignore-unmatch $1\" --prune-empty --tag-name-filter cat -- --all; }; f"
+
+	findemptydirs = !"find . -type d -empty ! -path ./tmp/\\*"
