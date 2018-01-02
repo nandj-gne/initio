@@ -2,5 +2,3 @@
 yadm:
   bin: "{{xdg.local}}/lib/yadm/yadm"
   dir: "{{xdg.local}}/share/yadm"
-initio:
-  tmp: "/tmp/initio"
