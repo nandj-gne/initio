@@ -1,12 +1,12 @@
 ---
 - name: Clone yadm
   git: >
-    repo={{yadm_repo}}
+    repo={{initio.yadm.repo}}
     dest="{{xdg.local}}/lib/yadm"
 
 - name: Clone Zim
   git: >
-    repo={{zim_repo}}
+    repo={{initio.zim.repo}}
     dest="{{xdg.config}}/zsh/zim"
 
 - name: Link yadm bin
@@ -29,7 +29,7 @@
   register: yadm_repo
 
 - name: Load initio from repo
-  shell: "{{yadm.bin}} -Y {{yadm.dir}} clone {{initio_repo}}"
+  shell: "{{yadm.bin}} -Y {{yadm.dir}} clone {{initio.repo}}"
   when: not yadm_repo.stat.exists and not cached_repo.stat.exists
 
 - name: Load initio from local cache

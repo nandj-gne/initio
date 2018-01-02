@@ -58,10 +58,10 @@ fi
 #
 # Initial playbooks
 #
-# if ! [ -f "$ansible_dir/runbook.yml" ]; then
-# 	mkdir -p $tmp_dir
-# 	git clone $initio_repo $tmp_dir
-# fi
+if ! [ -f "$ansible_dir/runbook.yml" ]; then
+    mkdir -p $tmp_dir
+    git clone $initio_repo $tmp_dir
+fi
 
 
 #

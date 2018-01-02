@@ -1,12 +1,5 @@
 ---
 #
-# Repositories
-# ------------
-yadm_repo: "https://github.com/jnand/yadm.git"
-zim_repo: "https://github.com/jnand/zim.git"
-initio_repo: "https://github.com/jnand/initio.git"
-
-#
 # Configuration type
 # ------------------ 
 # home - will provision all configs, and use personal repos
@@ -18,10 +11,20 @@ config_for: home
 # Initio configs
 # -----------
 initio:
+  repo: "https://github.com/jnand/initio.git"
+
+  # location of bootstrap cache files
   tmp: "/tmp/initio"
+
+  # playbook alias
   playbooks: "{{playbook_dir}}/playbooks"
 
+  yadm:
+    repo: "https://github.com/jnand/yadm.git"
 
+  zim:
+    repo: "https://github.com/jnand/zim.git"
+    
   gpg:
     # fingerprint of default key
     default_key: B83550D23D8D862E335EA5A0A63BEFAD44DC80CC
