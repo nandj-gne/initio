@@ -30,6 +30,7 @@ initio:
     default_key: B83550D23D8D862E335EA5A0A63BEFAD44DC80CC
 
   ssh:
+    # deploy key for cloning "secrets" repo
     secrets_key: "path/to/ssh/private/key"
 
 #
