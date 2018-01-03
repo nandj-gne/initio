@@ -1,8 +1,13 @@
 ---
 
-- name: gitconfig
+- name: Git configs
   file:
     src: ".config/git/gitconfig"
     dest: "{{user_home}}/.gitconfig"
     state: link
-    force: true
+
+- name: SSH configs
+  file:
+    src: "~/.config/ssh"
+    dest: "{{user_home}}/.ssh"
+    state: link

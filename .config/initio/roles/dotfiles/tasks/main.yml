@@ -1,4 +1,9 @@
 ---
+
+#
+# Dotfile manager and frameworks
+#
+
 - name: Clone yadm
   git: >
     repo={{initio.yadm.repo}}
@@ -48,6 +53,10 @@
   shell: "source {{user_home}}/.zshrc && zmanage update"
   args:
      executable: "{{zsh_path.stdout}}"
+
+#
+# Symlink adhoc dotfiles
+#
 
 - name: Symlink individual dotfiles
   include_tasks: symlinks.yml
