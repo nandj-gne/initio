@@ -118,3 +118,4 @@ References
 1. XDG Specification. https://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html
 2. Dotfiles. https://dotfiles.github.io/
 3. Mac Dev Playbook. https://github.com/geerlingguy/mac-dev-playbook
+4. TravisCI & Ansible. https://www.jeffgeerling.com/blog/testing-ansible-roles-travis-ci-github
