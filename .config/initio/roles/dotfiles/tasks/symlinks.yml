@@ -1,8 +1,8 @@
 ---
 
-# - name: gitconfig
-#   file:
-#     src: ".config/git/gitconfig"
-#     dest: "{{user_home}}/.gitconfig"
-#     state: link
-#     force: true
+- name: gitconfig
+  file:
+    src: ".config/git/gitconfig"
+    dest: "{{user_home}}/.gitconfig"
+    state: link
+    force: true
