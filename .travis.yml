@@ -6,6 +6,9 @@
 sudo: required
 language: objective-c
 osx_image: xcode9.2 
+branches:
+  only:
+    - master
 env:
   global:
     - INITIO_TEST=true
