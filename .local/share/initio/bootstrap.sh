@@ -67,7 +67,7 @@ fi
 #
 # Provision
 #
-
-ansible-galaxy install -r "$ansible_dir/requirements.yml"
-ansible-playbook -vv --ask-become-pass -i "$ansible_dir/hosts" "$ansible_dir/runbook.yml" --connection=local -l localhost
-
+if [ -z "$INITIO_TEST" ]; then
+    ansible-galaxy install -r "$ansible_dir/requirements.yml"
+    ansible-playbook -vv --ask-become-pass -i "$ansible_dir/hosts" "$ansible_dir/runbook.yml" --connection=local -l localhost
+fi
