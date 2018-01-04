@@ -1,0 +1,18 @@
+---
+
+#
+# MacOS
+#
+- block:
+  - include_vars:
+      file: vars/macos.yml
+  - include_role:
+      name: geerlingguy.homebrew
+  - name: Force brew's curl
+    shell: brew link --force curl    
+  when: ansible_distribution in distros.mac
+
+
+#
+# Linux
+#

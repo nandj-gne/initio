@@ -1,0 +1,29 @@
+---
+homebrew_taps:
+  - caskroom/cask
+
+homebrew_cask_apps:
+  - disk-inventory-x
+  - Firefox
+  - google-chrome
+  - iterm2
+  - keka
+  - keybase
+  - osxfuse
+  - veracrypt
+  - vim
+  - vlc
+
+homebrew_installed_packages:
+  - { name: curl, install_options: "with-openssl" }
+  - git 
+  - htop
+  - md5deep
+  - rmtrash
+  - tmux
+  - tree
+  - wakeonlan
+  - wget
+  
+  
+  
