@@ -3,7 +3,8 @@ initio
 
 *Endpoint and personal infra provisioning, like magic*
 
-[![Build Status](https://travis-ci.org/jnand/initio.svg?branch=master)](https://travis-ci.org/jnand/initio)
+[![Build Status][travis-badge]][travis-link]
+[![MIT licensed][mit-badge]][mit-link]
 
 ![Wizards](https://i.giphy.com/media/5tlq0pRndGu8U/giphy.webp)
 
