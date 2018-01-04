@@ -20,9 +20,9 @@ before_install:
   # Uninstall existing brew installation.
   - curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall --output brew_uninstall
   - ruby brew_uninstall --force
-  - rm -rf /usr/local/Homebrew
-  - rm -rf /usr/local/Caskroom
-  - rm -rf /usr/local/bin/brew
+  - sudo rm -rf /usr/local/Homebrew
+  - sudo rm -rf /usr/local/Caskroom
+  - sudo rm -rf /usr/local/bin/brew
 
 
 install: ./.local/share/initio/bootstrap.sh
