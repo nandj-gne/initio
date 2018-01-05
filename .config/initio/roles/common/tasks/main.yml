@@ -1,11 +1,27 @@
 ---
+#
+# Console ~ Nodes, Servers, and Compute
+# Desktop ~ Laptops and Workstations
+#
+- set_fact:
+    homebrew_cask_apps: >
+      {{cli.homebrew_cask_apps}} + {{gui.homebrew_cask_apps}}
+    homebrew_installed_packages: >
+      {{cli.homebrew_installed_packages}} + {{gui.homebrew_installed_packages}}
+    apt_packages: >
+      {{cli.apt_packages}} + {{gui.apt_packages}}
+  when: endpoint_type == "desktop"
+
+- set_fact:
+    apt_packages: >
+      {{cli.apt_packages}}
+  when: endpoint_type = "console"
+
 
 #
 # MacOS
 #
 - block:
-  - include_vars:
-      file: vars/macos.yml
   - include_role:
       name: geerlingguy.homebrew
   - name: Force brew's curl
@@ -16,3 +32,24 @@
 #
 # Linux
 #
+- block:
+  - apt:
+      name: "{{item}}"
+      state: present
+    with_items: "{{apt_packages}}"
+
+  - name: Safe rm via rmtrash
+    git:
+      repo: https://github.com/PhrozenByte/rmtrash.git
+      dest: "{{xdg.local}}/lib/rmtrash"
+  - name: Symlink rmtrash
+    file:
+      src: "{{xdg.local}}/lib/rmtrash/{{item}}"
+      dest: "{{xdg.local}}/bin/{{item}}"
+      state: link
+    with_items:
+      - "rmtrash"
+      - "rmdirtrash"
+
+  when: ansible_distribution in distros.debian
+

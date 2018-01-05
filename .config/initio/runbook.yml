@@ -51,6 +51,12 @@
       when: endpoint not in endpoints
     - meta: end_play
       when: config_for not in config_fors
+    - set_fact:
+        endpoint_type: "desktop"
+      when: endpoint == "laptop" or endpoint == "workstation"
+    - set_fact:
+        endpoint_type: "console"
+      when: endpoint_type is not defined
 
 #
 # Common provisioning

@@ -1,0 +1,53 @@
+---
+homebrew_taps:
+  - caskroom/cask
+
+cli:
+
+  homebrew_cask_apps:
+    - iterm2
+    - osxfuse
+
+  homebrew_installed_packages:
+    - { name: curl, install_options: "with-openssl" }
+    - git 
+    - htop
+    - mas
+    - md5deep
+    - rmtrash
+    - tmux
+    - tree
+    - vim
+    - wakeonlan
+    - wget
+
+  apt_packages:
+    - curl
+    - git
+    - hashdeep
+    - htop
+    - md5deep
+    - trash-cli
+    - tmux
+    - tree
+    - vim
+    - wakeonlan
+    - wget
+
+
+gui:
+
+  homebrew_cask_apps:
+    - disk-inventory-x
+    - Firefox
+    - google-chrome
+    - keka
+    - keybase
+    - veracrypt
+    - vlc
+
+  homebrew_installed_packages:
+    - gpg-suite
+
+  apt_packages:
+    - google-chrome-stable
