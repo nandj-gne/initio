@@ -4,3 +4,4 @@ user_home: "{{ansible_env.HOME}}"
 xdg:
   local: "{{user_home}}/.local"
   config: "{{user_home}}/.config"
+  cache: "{{{user_home}}/.cache"

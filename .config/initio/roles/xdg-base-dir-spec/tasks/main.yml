@@ -1,16 +1,20 @@
 ---
 - name: Create XDG config
   file:
-    path: "{{user_home}}/.config"
+    path: "{{xdg.config}}"
     state: directory
+
+- name: Create XDG cache
+  file:
+    path: "{{xdg.cache}}"
 
 - name: Create XDG locals
   file: 
-    path: "{{user_home}}/.local" 
+    path: "{{xdg.local}}" 
     state: directory
 
 - file: 
-    path: "{{user_home}}/.local/{{item}}"
+    path: "{{xdg.local}}/{{item}}"
     state: directory
   with_items:
     - lib
