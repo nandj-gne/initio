@@ -8,8 +8,9 @@ User
 -----
 * firefox +
 * google-chrome +
-* iterm2 [m]
+* iterm2 [m]+
 * mackup [m]
+* terminator [l]+
 * vlc +
 * xdg directory spec
 * yadm

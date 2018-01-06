@@ -5,7 +5,6 @@ homebrew_taps:
 cli:
 
   homebrew_cask_apps:
-    - iterm2
     - osxfuse
 
   homebrew_installed_packages:
@@ -41,6 +40,7 @@ gui:
     - disk-inventory-x
     - Firefox
     - google-chrome
+    - iterm2
     - keka
     - keybase
     - veracrypt
@@ -51,3 +51,4 @@ gui:
 
   apt_packages:
     - google-chrome-stable
+    - terminator
