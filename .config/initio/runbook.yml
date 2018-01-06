@@ -71,7 +71,7 @@
 # Common provisioning
 #
   roles:
-    - xdg-base-dir-spec
+    - common
     - zsh
     - gnupg
     - dotfiles
