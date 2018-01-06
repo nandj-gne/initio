@@ -27,6 +27,9 @@ Use the included `bootstrap.sh` file to setup and execute the runbook.
 The runbook will prompt for the type of setup: laptop, workstation, headnode, fileserver, or compute; and if the system is a home or work box. Each type of setup is configured by its own playbook found in `.config/initio/playbooks`. **Home** will use personal settings and private repos, while **work** will only use common settings and public repos -- *i.e.* a box configured for work _**won't**_ have your personal dropbox, github keys, fileserver creds, etc...
 
 
+:exclamation: Remember to check the [Manual Install](#manual-install) checklist.
+
+
 Built with
 -----------
 
@@ -108,9 +111,15 @@ Included Stuff
 * YADM
 * ZSH
 * ZIM
-* ... more
+* ... [more](.config/MANIFEST.md)
 
 
+Manual Install
+--------------
+
+These software packages are tighly controlled by their vendors and need manual installation, and registering a cloud client.
+
+- [ ] Sophos: https://home.sophos.com
 
 
 References
@@ -120,3 +129,4 @@ References
 2. Dotfiles. https://dotfiles.github.io/
 3. Mac Dev Playbook. https://github.com/geerlingguy/mac-dev-playbook
 4. TravisCI & Ansible. https://www.jeffgeerling.com/blog/testing-ansible-roles-travis-ci-github
+5. Ansible Homebrew. https://github.com/geerlingguy/ansible-role-homebrew/blob/master/README.md
