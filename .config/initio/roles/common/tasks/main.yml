@@ -25,3 +25,11 @@
   - include_tasks: linux-gui.yml
     when: endpoint_type == "desktop"
   when: distro.linux
+
+
+#
+# Role abstractions
+#
+- include_role:
+    name: terminal
+  when: endpoint_type == "desktop"
