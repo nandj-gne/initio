@@ -76,8 +76,7 @@
     - gnupg
     - dotfiles
     - secrets
-    - common
-
+    
 
 #
 # Endpoint specifics
@@ -85,3 +84,4 @@
   tasks:
     - include: "{{initio.playbooks}}/{{endpoint}}.yml"
       when: endpoint is defined
+
