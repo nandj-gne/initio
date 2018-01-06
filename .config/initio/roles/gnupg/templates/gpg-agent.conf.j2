@@ -6,6 +6,6 @@ enable-ssh-support
 default-cache-ttl 600
 max-cache-ttl 7200
 
-{% if ansible_distribution in distros.mac %}
+{% if distro.macos %}
 pinentry-program /usr/local/bin/pinentry-mac
 {% endif %}

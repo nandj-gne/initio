@@ -57,6 +57,14 @@
     - set_fact:
         endpoint_type: "console"
       when: endpoint_type is not defined
+    - set_fact:
+        distro:
+          macos: true
+      when: ansible_distribution in distros.mac
+    - set_fact:
+        distro:
+          debian: true
+      when: ansible_distribution in distros.debian
 
 #
 # Common provisioning
