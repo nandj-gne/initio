@@ -1,19 +1,38 @@
 ---
 
-- include_role:
-    name: geerlingguy.homebrew
+#
+# MacOS
+#
+
+- name: MacOS GnuPG 
+  block:
+    homebrew:
+      name: "{{item}}"
+      state: present
+    with_items:
+      - gnupg
+      - pinentry
+      - pinentry-mac
   when: distro.macos
 
-- apt:
-    name:  "{{ item }}"
+
+#
+# Linux
+#
+
+- name: Debian GnuPG
+  apt:
+    name: gnupg
     state: present
     install_recommends: false
     update_cache:       true
     cache_valid_time:   3600
-  with_items:
-    - gnupg
   when: distro.debian
 
+
+#
+# XDG Spec
+#
 
 - file:
     path: "{{xdg.config}}/gnupg"

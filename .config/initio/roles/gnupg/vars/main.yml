@@ -1,5 +1,0 @@
----
-homebrew_installed_packages:
-  - gnupg
-  - pinentry
-  - pinentry-mac
