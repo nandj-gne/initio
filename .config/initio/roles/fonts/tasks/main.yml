@@ -1,0 +1,39 @@
+---
+
+- name: Setting up fonts FONT_HOME
+  file:
+    path: "{{xdg.local}}/share/fonts"
+    recurse: yes
+    state: directory
+
+
+#
+# MacOS
+#
+- block:
+  - name: Install Source Code Pro
+    command: brew tap caskroom/fonts
+  - command: brew cask install font-source-code-pro
+  when: distro.macos
+ 
+
+
+#
+# Linux
+#
+- block:
+    - file:
+        path: "{{xdg.local}}/share/fonts/adobe-fonts/source-code-pro"
+        recurse: yes
+        state: directory
+    - name: Install Source Code Pro
+      git: >
+        repo='https://github.com/adobe-fonts/source-code-pro.git'
+        dest={{xdg.local}}/share/fonts/adobe-fonts/source-code-pro
+        depth=1
+        version: release
+    - name: Update font cache
+      shell: >
+        fc-cache -f -v "$FONT_HOME/adobe-fonts/source-code-pro
+  when: distro.debian
+

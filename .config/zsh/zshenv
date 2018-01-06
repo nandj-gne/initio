@@ -27,6 +27,10 @@ export XDG_BIN_HOME=$HOME/.local/bin
 export XDG_LIB_HOME=$HOME/.local/lib
 export XDG_CACHE_HOME=$HOME/.cache
 
+# Fonts
+export FONT_HOME=$XDG_DATA_HOME/fonts
+
+# Bin path
 export PATH="$XDG_BIN_HOME:$PATH"
 
 
