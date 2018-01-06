@@ -35,5 +35,5 @@
     - name: Update font cache
       shell: >
         fc-cache -f -v "$FONT_HOME/adobe-fonts/source-code-pro
-  when: distro.debian
+  when: distro.linux
 

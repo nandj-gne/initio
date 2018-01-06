@@ -24,4 +24,4 @@
   - include_tasks: linux-cli.yml
   - include_tasks: linux-gui.yml
     when: endpoint_type == "desktop"
-  when: distro.debian
+  when: distro.linux

@@ -63,6 +63,7 @@
       when: ansible_distribution in distros.mac
     - set_fact:
         distro:
+          linux: true
           debian: true
       when: ansible_distribution in distros.debian
 
