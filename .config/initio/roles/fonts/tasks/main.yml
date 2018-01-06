@@ -10,24 +10,26 @@
 #
 # MacOS
 #
-- block:
-  - name: Install Source Code Pro
-    command: brew tap caskroom/fonts
-  - command: brew cask install font-source-code-pro
+- name: Install Source Code Pro
+  block:
+  - homebrew_tap:
+      name: caskroom/fonts
+  - homebrew_cask:
+      name: font-source-code-pro
+      state: present
   when: distro.macos
  
-
 
 #
 # Linux
 #
-- block:
+- name: Install Source Code Pro
+  block:
     - file:
         path: "{{xdg.local}}/share/fonts/adobe-fonts/source-code-pro"
         recurse: yes
         state: directory
-    - name: Install Source Code Pro
-      git: >
+    - git: >
         repo='https://github.com/adobe-fonts/source-code-pro.git'
         dest={{xdg.local}}/share/fonts/adobe-fonts/source-code-pro
         depth=1
