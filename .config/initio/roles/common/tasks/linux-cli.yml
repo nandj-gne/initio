@@ -1,0 +1,31 @@
+---
+
+- apt:
+    name: "{{item}}"
+    state: present
+  with_items:
+    - curl
+    - git
+    - hashdeep
+    - htop
+    - md5deep
+    - trash-cli
+    - tmux
+    - tree
+    - vim
+    - wakeonlan
+    - wget
+
+- name: Safe rm via rmtrash
+  git:
+    repo: https://github.com/PhrozenByte/rmtrash.git
+    dest: "{{xdg.local}}/lib/rmtrash"
+- name: Symlink rmtrash
+  file:
+    src: "{{xdg.local}}/lib/rmtrash/{{item}}"
+    dest: "{{xdg.local}}/bin/{{item}}"
+    state: link
+  with_items:
+    - "rmtrash"
+    - "rmdirtrash"
+    

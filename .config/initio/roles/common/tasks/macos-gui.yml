@@ -1,0 +1,20 @@
+---
+
+- homebrew:
+    name: "{{item}}"
+    state: present
+  with_items:
+    - gpg-suite
+
+- homebrew_cask:
+    name: "{{item}}"
+    state: present
+  with_items:
+    - disk-inventory-x
+    - Firefox
+    - google-chrome
+    - iterm2
+    - keka
+    - keybase
+    - veracrypt
+    - vlc

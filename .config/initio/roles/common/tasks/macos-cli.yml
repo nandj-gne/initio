@@ -1,0 +1,27 @@
+---
+
+- homebrew:
+    name: "{{item}}"
+    state: present
+  with_items:
+    - git 
+    - htop
+    - mas
+    - md5deep
+    - rmtrash
+    - tmux
+    - tree
+    - vim
+    - wakeonlan
+    - wget
+
+- homebrew_cask:
+    name: "{{item}}"
+    state: present
+  with_items:
+    - osxfuse
+
+- homebrew:
+    name: curl
+    state: linked # brew link --force curl
+    install_options: with-openssl
