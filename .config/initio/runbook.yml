@@ -67,6 +67,7 @@
           debian: true
       when: ansible_distribution in distros.debian
 
+
 #
 # Common provisioning
 #
@@ -77,12 +78,13 @@
     - dotfiles
     - secrets
     - fonts
-    
+
 
 #
 # Endpoint specifics
 #
   tasks:
-    - include: "{{initio.playbooks}}/{{endpoint}}.yml"
+    - include_role:
+        name: "{{endpoint}}"
       when: endpoint is defined
 
