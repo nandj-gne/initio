@@ -51,21 +51,8 @@
       when: endpoint not in endpoints
     - meta: end_play
       when: config_for not in config_fors
-    - set_fact:
-        endpoint_type: "desktop"
-      when: endpoint == "laptop" or endpoint == "workstation"
-    - set_fact:
-        endpoint_type: "console"
-      when: endpoint_type is not defined
-    - set_fact:
-        distro:
-          macos: true
-      when: ansible_distribution in distros.mac
-    - set_fact:
-        distro:
-          linux: true
-          debian: true
-      when: ansible_distribution in distros.debian
+    - name: "Preflight checks"
+      include_tasks: preflight.yml
 
 
 #

@@ -1,0 +1,21 @@
+---
+
+- set_fact:
+    endpoint_type: "desktop"
+  when: endpoint == "laptop" or endpoint == "workstation"
+
+- set_fact:
+    endpoint_type: "console"
+  when: endpoint_type is not defined
+
+- set_fact:
+    distro:
+      macos: true
+  when: ansible_distribution in distros.mac
+
+- set_fact:
+    distro:
+      linux: true
+      debian: true
+  when: ansible_distribution in distros.debian
+  

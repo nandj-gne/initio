@@ -1,0 +1,24 @@
+---
+- hosts: laptop
+  strategy: linear
+  vars:
+    endpoint: laptop
+    endpoint_type: desktop # desktop as in GUI OS
+    config_for: home
+  vars_files:
+    - config.yml
+
+  pre_tasks:
+    - name: "Preflight checks"
+      include_tasks: preflight.yml
+
+  roles:
+    - common
+    - zsh
+    - gnupg
+    - dotfiles
+    - secrets
+    - fonts
+    - laptop
+
+   
