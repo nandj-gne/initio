@@ -20,6 +20,7 @@ User
 Dev
 ----
 * git
+* sublime text +
 
 
 DevOps
