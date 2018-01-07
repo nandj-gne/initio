@@ -1,0 +1,35 @@
+---
+
+- name: Power management settings
+  command: pmset -a {{item.key}} {{item.value}}
+  with_dict: "{{power_settings.macos}}"
+
+- name: MacOS Prefs
+  include_role:
+    name: "macos-prefs.yml"
+
+- name: Wipe all (default) app icons from the Dock
+  osx_defaults:
+    domain: com.apple.dock
+    key: persistent-apps
+    type: array
+
+- name: Setup Dock
+  command: dockutil --add '/Applications/{{item}}.app'
+  with_items:
+    - Launchpad
+    - Safari
+    - Firefox
+    - Chrome
+    - iCal
+    # - Todoist
+    - Reminders
+    - iTerm
+
+
+- name: Todoist
+  block:
+    - command: mas install 585829637
+    - command: dockutil --add /Applications/Todoist.app --after 'iCal'
+  tags: [home, personal]
+

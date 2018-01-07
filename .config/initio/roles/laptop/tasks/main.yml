@@ -1,0 +1,18 @@
+---
+
+#
+# MacOS
+#
+- block:
+    - include_tasks: macos.yml
+  when: distros.macos
+
+
+#
+# Linux
+#
+- block:
+    - include_tasks: ubuntu.yml
+  when: distros.ubuntu
+
+  

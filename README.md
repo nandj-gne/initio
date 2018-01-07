@@ -24,7 +24,8 @@ Use the included `bootstrap.sh` file to setup and execute the runbook.
 ❯ ./bootstrap.sh
 ```
 
-The runbook will ask about the setup: laptop, workstation, headnode, fileserver, or compute node; and if the system is a home or work box. Each type also has its own playbook found in `.config/initio/playbooks` for idividual push-deploys. **Home** will use personal settings and private repos, while **work** only uses common settings and public repos -- *i.e.* a box configured for work _**won't**_ have your personal dropbox, github keys, fileserver creds, etc...
+The runbook will ask about the setup: laptop, workstation, headnode, fileserver, or compute node; and if the system is a home or work box. Each type also has its own playbook found in `.config/initio/playbooks` for idividual push-deploys. **Home** will use ansible tasks tagged "home" or "personal", while **work** only uses common settings and public repos -- *i.e.* a box configured for work _**won't**_ have your personal dropbox, github keys, fileserver creds, etc... 
+
 
 
 :exclamation: Remember to check the [Manual Post-Install](#manual-install) checklist.
