@@ -1,0 +1,16 @@
+---
+
+- include_tasks: hostname.yml
+  when: computername is defined
+
+
+- include_tasks: "{{item}}.yml"
+  with_items:
+    - "keyboard-mouse"
+    - system
+    - finder
+    - "dock-dash-screen"
+    - developer
+    - safari
+    - "google-chrome"
+

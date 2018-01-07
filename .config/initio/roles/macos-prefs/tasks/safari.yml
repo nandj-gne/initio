@@ -1,0 +1,49 @@
+---
+#
+# Safari
+#
+
+- name: Disable auto-correct
+  osx_defaults:
+    domain: com.apple.Safari
+    key: WebAutomaticSpellingCorrectionEnabled
+    type: bool
+    value: false
+
+- name: Enable continuous spellchecking
+  osx_defaults:
+    domain: com.apple.Safari
+    key: WebContinuousSpellCheckingEnabled
+    type: bool
+    value: true
+
+- name: Enable the Develop menu and the Web Inspector in Safari
+  block:
+    - osx_defaults:
+        domain: com.apple.Safari
+        key: IncludeDevelopMenu
+        type: bool
+        value: true
+    - osx_defaults:
+        domain: com.apple.Safari
+        key: WebKitDeveloperExtrasEnabledPreferenceKey
+        type: bool
+        value: true
+    - osx_defaults:
+        domain: com.apple.Safari
+        key: com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled
+        type: bool
+        value: true
+
+- name: Remove useless icons from Safari’s bookmarks bar
+  osx_defaults:
+    domain: com.apple.Safari
+    key: ProxiesInBookmarksBar
+    value: "()"
+
+- name: Enable continuous spellchecking
+  osx_defaults:
+    domain: com.apple.Safari
+    key: IncludeInternalDebugMenu
+    type: bool
+    value: true

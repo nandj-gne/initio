@@ -1,6 +1,14 @@
 ---
 
 #
+# CLI passed configs
+# -------------------
+# these are better passed via the ansible cli args
+#
+# computername: ''
+
+
+#
 # Configuration type
 # ------------------ 
 # home - will provision all configs, and use personal repos

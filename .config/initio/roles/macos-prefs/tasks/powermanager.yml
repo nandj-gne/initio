@@ -1,0 +1,6 @@
+---
+
+- name: Update power manager settings
+  command: pmset -a "{{item.key}}" "{{item.value}}"
+  become: true
+  with_dict: "{{power_settings}}"

@@ -1,0 +1,12 @@
+---
+#
+# Google Chrome
+#
+
+- name: Expand the print dialog by default
+  osx_defaults:
+    domain: com.google.Chrome
+    key: PMPrintingExpandedStateForPrint2
+    type: bool
+    value: true
+    

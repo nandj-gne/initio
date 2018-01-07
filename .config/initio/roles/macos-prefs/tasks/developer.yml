@@ -1,0 +1,45 @@
+---
+#
+# Developer
+#
+
+- osx_defaults:
+    domain: com.apple.Safari
+    key: IncludeInternalDebugMenu
+    type: bool
+    value: true
+
+- name: Enable the WebKit Developer Tools in the Mac App Store
+  osx_defaults:
+    domain: com.apple.appstore
+    key: WebKitDeveloperExtras
+    type: bool
+    value: true
+
+- name: Enable Debug Menu in the Mac App Store
+  osx_defaults:
+    domain: com.apple.appstore
+    key: ShowDebugMenu
+    type: bool
+    value: true
+
+- name: Add a context menu item for showing the Web Inspector in web views
+  osx_defaults:
+    domain: NSGlobalDomain
+    key: WebKitDeveloperExtras
+    type: bool
+    value: true
+
+- name: Set Help Viewer windows to non-floating mode
+  osx_defaults:
+    domain: com.apple.helpviewer
+    key: DevMode
+    type: bool
+    value: true
+
+- name: Display ASCII control characters using caret notation in standard text views
+  osx_defaults:
+    domain: NSGlobalDomain
+    key: NSTextShowsControlCharacters
+    type: bool
+    value: true

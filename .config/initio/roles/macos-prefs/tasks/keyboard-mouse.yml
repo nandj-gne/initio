@@ -1,0 +1,46 @@
+---
+#
+# Keyboard & Mouse
+#
+
+- name: Trackpad - enable tap to click
+  block:
+    - osx_defaults:
+        domain: com.apple.AppleMultitouchTrackpad
+        key: Clicking
+        type: int
+        value: 1
+    - osx_defaults:
+        domain: NSGlobalDomain
+        key: com.apple.mouse.tapBehavior
+        type: int
+        value: 1
+
+- name: Enable full keyboard access for all controls
+  osx_defaults:
+    domain: NSGlobalDomain
+    key: AppleKeyboardUIMode
+    type: int
+    value: 3
+
+- name: Disable press-and-hold for keys in favor of key repeat
+  osx_defaults:
+    domain: NSGlobalDomain
+    key: ApplePressAndHoldEnabled
+    type: bool
+    value: false
+
+- name: Set a blazingly fast keyboard repeat rate
+  osx_defaults:
+    domain: NSGlobalDomain
+    key: KeyRepeat
+    type: int
+    value: 0
+
+- name: Disable auto-correct
+  osx_defaults:
+    domain: NSGlobalDomain
+    key: NSAutomaticSpellingCorrectionEnabled
+    type: bool
+    value: false
+

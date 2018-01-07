@@ -1,0 +1,95 @@
+---
+#
+# Dock, Dashboard, and hot corners
+#
+
+- name: Enable highlight hover effect for the grid view of a stack (Dock)
+  osx_defaults:
+    domain: com.apple.dock
+    key: mouse-over-hilite-stack
+    type: bool
+    value: true
+
+- name: Set the icon size of Dock items
+  osx_defaults:
+    domain: com.apple.dock
+    key: tilesize
+    type: int
+    value: 60
+
+- name: Change minimize/maximize window effect
+  osx_defaults:
+    domain: com.apple.dock
+    key: mineffect
+    type: string
+    value: "scale"
+
+- name: Minimize windows into their application’s icon
+  osx_defaults:
+    domain: com.apple.dock
+    key: minimize-to-application
+    type: bool
+    value: false
+
+- name: Show indicator lights for open applications in the Dock
+  osx_defaults:
+    domain: com.apple.dock
+    key: show-process-indicators
+    type: bool
+    value: true
+
+- name: Don’t animate opening applications from the Dock
+  osx_defaults:
+    domain: com.apple.dock
+    key: launchanim
+    type: bool
+    value: false
+
+- name: Speed up Mission Control animations
+  osx_defaults:
+    domain: com.apple.dock
+    key: expose-animation-duration
+    type: float
+    value: 0.1    
+
+- name: Don’t group windows by application in Mission Control
+  osx_defaults:
+    domain: com.apple.dock
+    key: expose-group-by-app
+    type: bool
+    value: false
+
+- name: Disable Dashboard
+  osx_defaults:
+    domain: com.apple.dashboard
+    key: mcx-disabled
+    type: bool
+    value: true
+
+- name: Automatically hide and show the Dock
+  osx_defaults:
+    domain: com.apple.dock
+    key: autohide
+    type: bool
+    value: true
+
+- name: Make Dock icons of hidden applications translucent
+  osx_defaults:
+    domain: com.apple.dock
+    key: showhidden
+    type: bool
+    value: true
+
+- name: Top right screen corner → Put display to sleep
+  block:
+    - osx_defaults:
+        domain: com.apple.dock
+        key: wvous-tr-corner
+        type: int
+        value: 10
+    - osx_defaults:
+        domain: com.apple.dock
+        key: wvous-tr-modifier
+        type: int
+        value: 0
+
