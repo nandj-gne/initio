@@ -11,6 +11,7 @@ User
 * iterm2 [m]+
 * mackup [m]
 * terminator [l]+
+* todoist [m]+
 * vlc +
 * xdg directory spec
 * yadm
