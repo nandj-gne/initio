@@ -5,6 +5,7 @@
     state: present
   with_items:
     - gpg-suite
+    - dockutil
 
 - homebrew_cask:
     name: "{{item}}"

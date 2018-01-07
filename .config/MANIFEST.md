@@ -32,6 +32,7 @@ System
 -------	
 * curl
 * disk-inventory-x [m]+
+* dockutil [m]
 * hashdeep [l]
 * homebrew [m]
 * htop
