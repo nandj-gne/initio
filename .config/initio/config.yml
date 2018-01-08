@@ -9,12 +9,13 @@
 
 
 #
-# Configuration type
+# Configuration tags
 # ------------------ 
-# home - will provision all configs, and use personal repos
-# work - will only provision common configs, and use pub repos
+# home     - personal configs, secrets, and private repos
+# personal
 #
-config_for: home
+# example: $ ansible-playbook --skip-tags "home"
+
 
 #
 # Initio configs
