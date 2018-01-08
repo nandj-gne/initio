@@ -9,6 +9,7 @@
     - hashdeep
     - htop
     - md5deep
+    - python3
     - trash-cli
     - tmux
     - tree
@@ -28,4 +29,8 @@
   with_items:
     - "rmtrash"
     - "rmdirtrash"
+    
+- pip:
+    requirements: "files/python3-requirements.txt"
+    executable: pip3
     
