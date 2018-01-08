@@ -27,7 +27,6 @@
     - Reminders
     - iTerm
 
-
 # Uses macbuilds launcpad helper script
 # see: https://github.com/fgimian/macbuild/blob/master/extras/launchpad.py
 # example: ./extras/launchpad.py build host_vars/localhost/launchpad.yaml
@@ -35,9 +34,25 @@
   shell: ~/.local/lib/initio/launchpad.py build ~/.config/initio/roles/laptop/files/launchpad.yml
   tags: [home, personal]
 
+#
+# Apps
+#
 - name: Todoist
   block:
     - command: mas install 585829637
     - command: dockutil --add /Applications/Todoist.app --after 'iCal'
   tags: [home, personal]
+
+# see: https://github.com/OJFord/loginitems
+# example: $ loginitems-add name path hide
+- name: Set login items
+  shell: >
+    {{initio.bin}}/loginitems-add {{item.name}} /Applications/{{item.name}} {{item.value}}
+  with_dict:
+    Dropbox: false
+    iTerm: false
+    BetterTouchTool: false
+    Qbserve: false
+
+
 
