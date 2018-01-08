@@ -27,6 +27,13 @@
     - iTerm
 
 
+# Uses macbuilds launcpad helper script
+# see: https://github.com/fgimian/macbuild/blob/master/extras/launchpad.py
+# example: ./extras/launchpad.py build host_vars/localhost/launchpad.yaml
+- name: Organize launchpad
+  shell: ~/.local/lib/initio/launchpad.py build ~/.config/initio/roles/laptop/files/launchpad.yml
+  tags: [home, personal]
+
 - name: Todoist
   block:
     - command: mas install 585829637

@@ -1,0 +1,154 @@
+---
+app_layout:
+  # First Page
+  -     
+    - folder_title: Web
+      folder_layout:
+        - 
+          - Safari
+          - Firefox
+          - PiPifier
+          - uTorrent
+          - Google Chrome
+          - Dropbox
+    
+    - folder_title: Communication
+      folder_layout:
+        - 
+          - Messages
+          - FaceTime
+          - Mail
+          - Contacts
+      
+    - folder_title: Photography
+      folder_layout:
+        - 
+          - Photos
+          - Photo Booth
+          - Preview
+      
+    - folder_title: Sysadmin
+      folder_layout:
+        -
+          - Disk Inventory X
+          - Carbon Copy Cloner
+          - Backblaze
+      
+    - folder_title: Security
+      folder_layout:
+        - 
+          - YubiKey Personalization Tool
+          - YubiKey PIV Manager
+          - KeePassXC
+          - Private Internet Access
+          - VeraCrypt
+          - Keybase
+          - Micro Snitch
+          - Little Snitch Configuration
+          - KnockKnock
+          - TaskExplorer
+          - KextViewr
+          - DHS
+          - DNSCrypt Menubar
+          - WhatsYourSign
+          - Yubico Authenticator
+          - Sophos Home
+          - Cryptomator
+          - Remove Sophos Home
+          - GPG Keychain
+          - T3 Log In Activator for Mac
+      
+    - folder_title: Media
+      folder_layout:
+        - 
+          - iTunes
+          - iBooks
+          - VLC
+          - MusicBrainz Picard
+          - Plex Media Player
+      
+    - folder_title: Mac OS
+      folder_layout:
+        - 
+          - System Preferences
+          - App Store
+          - Mission Control
+          - Dashboard
+          - Siri
+      
+    - folder_title: Utils
+      folder_layout:
+        - 
+          - QuickTime Player
+          - TextEdit
+          - Grapher
+          - DVD Player
+          - Time Machine
+          - Font Book
+          - Chess
+          - Stickies
+          - Image Capture
+          - VoiceOver Utility
+          - AirPort Utility
+          - Migration Assistant
+          - Terminal
+          - Activity Monitor
+          - Console
+          - Keychain Access
+          - System Information
+          - Script Editor
+          - Disk Utility
+          - Boot Camp Assistant
+          - Digital Color Meter
+          - ColorSync Utility
+          - Grab
+          - Bluetooth File Exchange
+          - Audio MIDI Setup
+          - Dictionary
+          - BetterTouchTool
+          - Keka
+        
+    - folder_title: Office
+      folder_layout:
+        - 
+          - Microsoft Excel
+          - Microsoft OneNote
+          - Microsoft PowerPoint
+          - Microsoft Word
+      
+    - folder_title: Dev
+      folder_layout:
+        - 
+          - Automator
+          - GitKraken
+          - Typora
+          - iTerm
+          - Sublime Text
+          - VMware Fusion
+      
+    - Google Play Music
+    - Calendar
+    - Reminders
+    - Todoist
+    - Notes
+    - Maps
+    - Calculator  
+    - Qbserve    
+    - TogglDesktop
+    
+
+
+widget_layout:
+  - 
+    - Calculator
+    - Calendar
+    - Contacts
+    - Dictionary
+    - Movies
+    - Stickies
+    - Stocks
+    - Tile Game
+    - Unit Converter
+    - Weather
+    - Web Clip
+    - World Clock
