@@ -11,13 +11,21 @@
     - get_url:
         url: "{{sublime_text.package_control_uri}}"
         dest: "~Library/Application Support/Sublime Text 3/Installed Packages/Package Control.sublime-package"
+    - name: Remove default directory
+      file:
+        path: "~Library/Application Support/Sublime Text 3/Packages/User"
+        state: absent
+    - name: Symlink sublime user configs
+      file:
+        src: "{{xdg.config}}/sublime-text-3/Packages/User"
+        dest: "~Library/Application Support/Sublime Text 3/Packages/User"
+        state: link
   when: distro.macos
 
 
 #
 # Linux
 #
-
 - name: Sublime text
   block:
     - apt_repository:
@@ -28,10 +36,11 @@
         update_cache: yes
     - name: Install package control      
       file:
-        path: "{{xdg.config}}/sublime-test-3/Installed Packages"
+        path: "{{xdg.config}}/sublime-text-3/Installed Packages"
         recurse: yes
         state: directory
     - get_url:
         url: "{{sublime_text.package_control_uri}}"
-        dest: "{{xdg.config}}/sublime-test-3/Installed Packages/Package Control.sublime-package"
+        dest: "{{xdg.config}}/sublime-text-3/Installed Packages/Package Control.sublime-package"
   when: distro.debian
+
