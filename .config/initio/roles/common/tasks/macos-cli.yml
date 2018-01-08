@@ -26,7 +26,3 @@
     name: curl
     state: linked # brew link --force curl
     install_options: with-openssl
-
-- pip:
-    requirements: "files/python3-requirements.txt"
-    executable: pip3
