@@ -2,21 +2,21 @@
 
 - name: Set computername
   shell: scutil --set ComputerName {{ computername }}
-  become: yes
+  become: true
   when: ansible_hostname != computername
 
 - name: Set hostname
   shell: scutil --set HostName {{ computername }}
-  become: yes
+  become: true
   when: ansible_hostname != computername
 
 - name: Set localhostname
   shell: scutil --set LocalHostName {{ computername }}
-  become: yes
+  become: true
   when: ansible_hostname != computername
 
 - name: Set the netbios name
   command: defaults write {{item}} NetBIOSName -string {{computername}}  
-  become: yes
+  become: true
   with_items:
     - "/Library/Preferences/SystemConfiguration/com.apple.smb.server"
