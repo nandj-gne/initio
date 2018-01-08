@@ -30,8 +30,13 @@
 #
 # Role abstractions
 #
-- include_role:
-    name: terminal
+- name: Role based commons
+  block:
+    - include_role:
+        name: "{{item}}"
+      with_items:
+        - terminal
+        - sublime-text
   when: endpoint_type == "desktop"
 
 
@@ -42,3 +47,5 @@
 - pip:
     requirements: "files/python3-requirements.txt"
     executable: pip3
+
+

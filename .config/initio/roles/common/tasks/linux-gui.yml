@@ -1,13 +1,8 @@
 ---
 
-- apt_repository:
-    repo: 'ppa:webupd8team/sublime-text-3'
-  when: distro.debian
-
 - apt:
     name: "{{item}}"
     state: present
     update_cache: yes
   with_items:
     - google-chrome-stable
-    - sublime-text-installer

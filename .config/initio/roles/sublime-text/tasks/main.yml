@@ -1,0 +1,37 @@
+---
+
+#
+# MacOS
+#
+- name: Sublime text
+  block:
+    - homebrew_cask:
+        name: sublime-text
+        state: present
+    - get_url:
+        url: "{{sublime_text.package_control_uri}}"
+        dest: "~Library/Application Support/Sublime Text 3/Installed Packages/Package Control.sublime-package"
+  when: distro.macos
+
+
+#
+# Linux
+#
+
+- name: Sublime text
+  block:
+    - apt_repository:
+        repo: 'ppa:webupd8team/sublime-text-3'
+    - apt:
+        name: sublime-text-installer
+        state: present
+        update_cache: yes
+    - name: Install package control      
+      file:
+        path: "{{xdg.config}}/sublime-test-3/Installed Packages"
+        recurse: yes
+        state: directory
+    - get_url:
+        url: "{{sublime_text.package_control_uri}}"
+        dest: "{{xdg.config}}/sublime-test-3/Installed Packages/Package Control.sublime-package"
+  when: distro.debian
