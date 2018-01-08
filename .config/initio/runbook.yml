@@ -11,9 +11,6 @@
       - headnode
       - fileserver
       - compute
-    config_fors:
-      - home
-      - work
   vars_files:
     - config.yml
 
@@ -35,22 +32,10 @@
 
       default: "laptop"
       private: no
-    - name: "config_for"
-      prompt: |
-
-        Configure for:
-        ---------------
-        home
-        work
-
-      default: "home"
-      private: no
 
   pre_tasks:
     - meta: end_play
       when: endpoint not in endpoints
-    - meta: end_play
-      when: config_for not in config_fors
     - name: "Preflight checks"
       include_tasks: preflight.yml
 

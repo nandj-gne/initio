@@ -21,10 +21,10 @@ Use the included `bootstrap.sh` file to setup and execute the runbook.
 
 ```
 ❯ curl https://raw.githubusercontent.com/jnand/initio/master/.local/share/initio/bootstrap.sh --output bootstrap.sh
-❯ ./bootstrap.sh
+❯ ./bootstrap.sh --skip-tags="home"
 ```
 
-The runbook will ask about the setup: laptop, workstation, headnode, fileserver, or compute node; and if the system is a home or work box. Each type also has its own playbook found in `.config/initio/playbooks` for idividual push-deploys. **Home** will use ansible tasks tagged "home" or "personal", while **work** only uses common settings and public repos -- *i.e.* a box configured for work _**won't**_ have your personal dropbox, github keys, fileserver creds, etc... 
+The runbook will ask about the setup: laptop, workstation, headnode, fileserver, or compute node. Each type has its own playbook found in `.config/initio/playbooks`, useful for idividual push-deploys. Use the ansible `--tags|--skip-tags=` flag to provision as a home or work box. Tasks tagged **`home`** include personal configs and repos, `--skip-tags=home` will exclude personal info and only uses common settings and public repos -- *i.e.* a box configured for work _**without**_ your personal dropbox, github keys, or fileserver creds etc... 
 
 
 

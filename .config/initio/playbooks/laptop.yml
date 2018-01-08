@@ -4,7 +4,6 @@
   vars:
     endpoint: laptop
     endpoint_type: desktop # desktop as in GUI OS
-    config_for: home
   vars_files:
     - config.yml
 
