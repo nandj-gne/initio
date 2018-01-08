@@ -136,3 +136,4 @@ References
 5. Ansible Homebrew. https://github.com/geerlingguy/ansible-role-homebrew/blob/master/README.md
 6. Terminal Colors. https://github.com/mbadolato/iTerm2-Color-Schemes
 7. MacOS Playbooks. https://github.com/mtneug/cfg_mgmt-macos
+8. Macbuild. https://github.com/fgimian/macbuild
