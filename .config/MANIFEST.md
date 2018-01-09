@@ -56,6 +56,7 @@ Security
 * gpg-suite [m]+
 * keybase +
 * veracrypt +
+* yubikey
 
 Services
 --------

@@ -1,0 +1,75 @@
+---
+#
+# Yubikey setup
+# -------------
+# see: https://www.yubico.com/support/knowledge-base/categories/articles/yubikey-mac-os-x-login-guide/
+
+
+- name: Disable FileVault auto login
+  shell: >
+    defaults write /Library/Preferences/com.apple.loginwindow DisableFDEAutoLogin -bool YES
+  become: true
+
+- homebrew:
+    name: "{{item}}"
+    state: present
+  with_items:
+    - ykman
+    - ykpers
+    - libyubikey
+    - pinentry-mac
+    - pam_yubico
+    - yubico-piv-tool    
+    - yubikey-personalization
+
+- homebrew_cask:
+    name: "{{item}}"
+    state: present
+  with_items:
+    - yubico-yubikey-manager
+    - yubico-yubikey-piv-manager
+    - yubico-yubikey-personalization-gui
+
+#
+# PAM logon configuration
+#
+- stat:
+    path: ~/Secrets/yubico
+  register: yubco_secret_dir
+
+- name: Symlink Yubikey secret
+  file:
+    src: ~/Secrets/yubico
+    dest: ~/.ybico
+    state: link
+  when: yubco_secret_dir.stat.exists
+
+- name: Setup Yubikey secret
+  block:
+    - file:
+        path: ~/.yubico
+        mode: 0700
+    - pause:
+        prompt: Insert Yubikye, return when ready
+    - name: Save challenge
+      command: ykpamcfg -2
+    - name: Verify new challenge
+      stat:
+        path: "{{item}}"
+      with_fileglob:
+        - "~/.yubico/challenge-*"
+    - name: Verify library
+      stat:
+        path: /usr/local/lib/security/pam_yubico.so
+    - template:
+        src: "macos/{{item}}.j2"
+        dest: "/etc/pamd.d/{{item}}"
+        mode: 0644
+      with_items:
+        - screensaver
+        - authorization   
+  when: not yubco_secret_dir.stat.exists
+
+
+
+

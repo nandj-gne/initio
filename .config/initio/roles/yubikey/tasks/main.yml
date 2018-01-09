@@ -1,0 +1,8 @@
+---
+
+#
+# MacOS
+#
+- block:
+    - include_tasks: macos.yml
+  when: distro.mac
