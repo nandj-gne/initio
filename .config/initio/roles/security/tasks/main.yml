@@ -1,0 +1,27 @@
+---
+
+#
+# MacOS
+#
+- block:
+    - include_tasks: macos.yml
+  when: distro.mac
+
+
+#
+# Linux
+#
+
+
+#
+# SSH
+#
+- include_tasks: ssh.yml
+
+
+#
+# Yubikey
+# 
+- name: Setup Yubikey
+    include_role:
+      name: yubikey

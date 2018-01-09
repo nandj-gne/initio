@@ -42,6 +42,7 @@ initio:
 
   ssh:
     # deploy key for cloning "secrets" repo
+    authorized_keys: https://jnand.keybase.pub/ssh-public.keys
 
   keepass:
     db_path: "path/to/keepass.kdbx"

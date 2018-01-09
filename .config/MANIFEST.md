@@ -52,9 +52,23 @@ System
 
 Security
 --------
+* blockblock [m]+
+* cryptomator +
+* dhs [m]+
+* dnscrypt [m]+
 * gnupg
 * gpg-suite [m]+
+* keepassxc +
+* kextviewr [m]+
 * keybase +
+* knockknock [m]+
+* little-snitch [m]+
+* micro-snitch [m]+
+* murus [m]+
+* murus-menulet [m]+
+* private-internet-access
+* taskexplorer [m]+
+* whatsyoursign [m]+
 * veracrypt +
 * yubikey
 
