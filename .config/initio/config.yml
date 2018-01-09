@@ -42,7 +42,11 @@ initio:
 
   ssh:
     # deploy key for cloning "secrets" repo
-    secrets_key: "path/to/ssh/private/key"
+
+  keepass:
+    db_path: "path/to/keepass.kdbx"
+    database: "name_of_db.kdbx"
+    
 
 #
 # Supported Distro
