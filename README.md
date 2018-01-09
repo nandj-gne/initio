@@ -123,7 +123,11 @@ Manual Install
 
 These software packages are tighly controlled by their vendors and need manual installation, and/or registering a cloud client.
 
-- [ ] Sophos: https://home.sophos.com
+| Install | Login | Configure | Name    | URL |
+|:-------:|:-----:|:---------:|:------- |:--------------------------- |
+| [ ]     | [ ]   | [ ]       | Sophos  | https://home.sophos.com
+|         | [ ]   |           | Dropbox | https://www.dropbox.com/install-linux
+
 
 
 References
