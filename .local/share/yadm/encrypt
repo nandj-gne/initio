@@ -4,3 +4,4 @@
 .config/gnupg/private-keys*/*
 .config/gnupg/pubring.*
 .config/gnupg/trustdb.*
+~/Secrets/yubico/*
