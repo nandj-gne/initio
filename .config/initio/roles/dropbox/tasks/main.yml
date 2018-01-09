@@ -1,0 +1,61 @@
+---
+
+#
+# MacOS
+#
+- block:
+  - name: Install Dropbox GUI
+    homebrew_cask:
+      name: dropbox
+      state: present
+  when: distro.macos
+
+
+#
+# Linux
+#
+# see: https://www.dropbox.com/install-linux
+- block:
+  - apt:
+      deb: "{{dropbox.debian}}"      
+  when: distro.linux
+
+
+#
+# Daemon & CLI
+#
+# see: http://www.dropboxwiki.com/tips-and-tricks/using-the-official-dropbox-command-line-interface-cli#Installation
+- name: Install dropbox daemon & cli
+  block:
+
+    # CLI
+    - get_url:
+        url: "https://www.dropbox.com/download?dl=packages/dropbox.py"
+        dest: .local/lib/dropbox/dropbox.py
+        mode: 0550
+
+    - file:
+        src: .local/lib/dropbox/dropbox.py
+        dest: .local/bin/dropbox
+        state: link
+
+    # Daemon        
+    - file:
+        path: /opt/dropbox
+        recurse: yes
+
+    - get_url:
+        url: "{{dropbox.daemon}}"
+        dest: /tmp/dropbox-linux.tgz
+
+    - name: Install dropbox daemon
+      command: >
+        tar xzfv dropbox-linux.tar.gz --strip 1 -C /opt/dropbox
+      become: true
+
+    - name: Start on boot
+      shell: >
+        @reboot /opt/dropbox/dropboxd
+
+  when: distro.linux and endpoint_type == "console"
+  

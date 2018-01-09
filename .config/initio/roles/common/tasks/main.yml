@@ -30,7 +30,7 @@
 #
 # Role abstractions
 #
-- name: Role based commons
+- name: Role based gui commons
   block:
     - include_role:
         name: "{{item}}"
@@ -38,6 +38,14 @@
         - terminal
         - sublime-text
   when: endpoint_type == "desktop"
+
+- name: Roles based cli commons
+  block:
+    - include_role:
+        name: "{{item}}"
+      with_items:
+        - dropbox
+  when: endpoint_type == "console"
 
 
 #
