@@ -12,7 +12,7 @@
       - fileserver
       - compute
   vars_files:
-    - config.yml
+    - default.config.yml
 
 #
 # Prompt for endpoint and config
@@ -34,6 +34,9 @@
       private: no
 
   pre_tasks:
+    - include_vars: "{{ item }}"
+      with_fileglob:
+        - ../config.yml
     - meta: end_play
       when: endpoint not in endpoints
     - name: "Preflight checks"
