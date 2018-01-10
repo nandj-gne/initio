@@ -33,15 +33,6 @@
 - include_role: name=dropbox
 
 
-# - name: Roles based cli commons
-#   block:
-#     - include_role:
-#         name: "{{item}}"
-#       with_items:
-#         - 
-#   when: endpoint_type == "console"
-
-
 #
 # Python
 #

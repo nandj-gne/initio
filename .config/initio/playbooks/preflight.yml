@@ -1,7 +1,12 @@
 ---
+
+- include_vars: "{{ item }}"
+  with_fileglob:
+    - ../config.yml
+
 - meta: end_play
   when: endpoint not in endpoints
-      
+
 - set_fact:
     endpoint_type: "desktop"
   when: endpoint == "laptop" or endpoint == "workstation"
