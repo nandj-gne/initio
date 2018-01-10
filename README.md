@@ -125,15 +125,15 @@ These software packages are tighly controlled by their vendors and need manual i
 
 | Install | Login | Config | License | Name      | URL |
 |:-------:|:-----:|:------:|:-------:|:--------- |
-| [ ]     | [ ]   | [ ]    |         |Sophos    | https://home.sophos.com
-|         | [ ]   |        |         |Dropbox   | https://www.dropbox.com/install-linux
-|         | [ ]   |        |         |Todoist   | https://todoist.com
-|         | [ ]   |        | [ ]     |Backblaze | https://www.backblaze.com/
-|         | [ ]   |        |         |Toggl     | https://toggl.com/
-|         | [ ]   |        | [ ]     |MS Office | https://www.office.com/
-|         | [ ]   |        | [ ]     |GitKraken | https://www.gitkraken.com/
-|         | [ ]   |        | [ ]     |JetBrains | https://account.jetbrains.com/login
-|         |       |        | [ ]     |VMWare    | https://www.vmware.com/products/fusion.html
+| [ ]     | [ ]   | [ ]    |         |Sophos     | https://home.sophos.com
+|         | [ ]   |        |         |Dropbox    | https://www.dropbox.com/install-linux
+|         | [ ]   |        |         |Todoist    | https://todoist.com
+|         | [ ]   |        | [ ]     |Backblaze  | https://www.backblaze.com/
+|         | [ ]   |        |         |Toggl      | https://toggl.com/
+|         | [ ]   |        | [ ]     |MS Office  | https://www.office.com/
+|         | [ ]   |        | [ ]     |GitKraken  | https://www.gitkraken.com/
+|         | [ ]   |        | [ ]     |JetBrains  | https://account.jetbrains.com/login
+|         |       |        | [ ]     |VMWare     | https://www.vmware.com/products/fusion.html
 
 References
 ------------------

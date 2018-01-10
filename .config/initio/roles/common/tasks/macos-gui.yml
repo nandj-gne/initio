@@ -4,7 +4,6 @@
     name: "{{item}}"
     state: present
   with_items:
-    - gpg-suite
     - dockutil
 
 - homebrew_cask:
@@ -12,9 +11,18 @@
     state: present
   with_items:
     - disk-inventory-x
-    - Firefox
+    - firefox
     - google-chrome
     - keka
     - keybase
     - veracrypt
     - vlc
+
+- command: "echo none"
+  become: yes
+
+- homebrew_cask:
+    name: "{{item}}"
+    state: present
+  with_items:
+    - gpg-suite

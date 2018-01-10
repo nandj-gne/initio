@@ -11,10 +11,13 @@
 - set_fact:
     distro:
       macos: true
+      linux: false
+      debian: false
   when: ansible_distribution in distros.mac
 
 - set_fact:
     distro:
+      macos: false
       linux: true
       debian: true
   when: ansible_distribution in distros.debian

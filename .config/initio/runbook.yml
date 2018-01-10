@@ -40,7 +40,7 @@
     - meta: end_play
       when: endpoint not in endpoints
     - name: "Preflight checks"
-      include_tasks: preflight.yml
+      include_tasks: playbooks/preflight.yml
 
 
 #

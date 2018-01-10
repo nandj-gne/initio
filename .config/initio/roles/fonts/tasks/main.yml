@@ -33,9 +33,9 @@
         repo='https://github.com/adobe-fonts/source-code-pro.git'
         dest={{xdg.local}}/share/fonts/adobe-fonts/source-code-pro
         depth=1
-        version: release
+        version=release
     - name: Update font cache
       shell: >
-        fc-cache -f -v "$FONT_HOME/adobe-fonts/source-code-pro
+        fc-cache -f -v "$FONT_HOME/adobe-fonts/source-code-pro"
   when: distro.linux
 

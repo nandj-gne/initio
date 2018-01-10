@@ -5,7 +5,7 @@
     state: present
   with_items:
     - git 
-    - htop
+    # - htop # see: https://github.com/Homebrew/homebrew-core/pull/22479
     - mas
     - md5deep
     - python3
@@ -22,7 +22,11 @@
   with_items:
     - osxfuse
 
-- homebrew:
-    name: curl
-    state: linked # brew link --force curl
-    install_options: with-openssl
+- name: Override system curl
+  block:
+    - homebrew:
+        name: curl
+        state: present
+        install_options: with-openssl
+    - command: brew link --force curl
+  

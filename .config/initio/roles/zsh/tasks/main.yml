@@ -3,22 +3,19 @@
 #
 # MacOS
 #
-
-- name: MacOS GnuPG 
-  block:
-    homebrew:
-      name: "{{item}}"
-      state: present
-    with_items:
-      - zsh
-      - zsh-completions
+- block:
+    - homebrew:
+        name: "{{item}}"
+        state: present
+      with_items:
+        - zsh
+        - zsh-completions
   when: distro.macos
 
 
 #
 # Linux
 #
-
 - apt:
     name: zsh
     state: present
@@ -31,7 +28,6 @@
 #
 # Update user conf
 #
-
 - command: which zsh
   register: zsh_path
 

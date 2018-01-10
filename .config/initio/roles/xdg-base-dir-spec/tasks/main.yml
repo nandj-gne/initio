@@ -7,6 +7,7 @@
 - name: Create XDG cache
   file:
     path: "{{xdg.cache}}"
+    state: directory
 
 - name: Create XDG locals
   file: 
