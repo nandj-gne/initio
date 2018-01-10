@@ -18,3 +18,4 @@ power_settings:
     tcpkeepalive: 1
     acwake: 0
     lidwake: 1
+

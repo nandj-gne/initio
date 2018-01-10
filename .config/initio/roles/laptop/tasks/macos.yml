@@ -3,10 +3,11 @@
 - name: Power management settings
   command: pmset -a {{item.key}} {{item.value}}
   with_dict: "{{power_settings.macos}}"
+  become: true
 
 - name: MacOS Prefs
   include_role:
-    name: "macos-prefs.yml"
+    name: "macos-prefs"
 
 - name: Wipe all (default) app icons from the Dock
   osx_defaults:
@@ -42,6 +43,59 @@
     - command: mas install 585829637
     - command: dockutil --add /Applications/Todoist.app --after 'iCal'
   tags: [home, personal]
+
+- command: mas install
+  with_items:
+    - 1160374471 # PiPifier
+  tags: [home, personal]
+
+- homebrew_cask:
+    name: "{{item}}"
+    state: present
+  with_items:
+    - transmission
+    - ubiquiti-unifi-controller
+    - backblaze
+    - hermes
+    - plex-media-player
+    - musicbrainz-picard
+    - marshallofsound-google-play-music-player
+  tags: [home, personal]
+
+- homebrew_cask:
+    name: "{{item}}"
+    state: present
+  with_items:
+    - bettertouchtool
+    - typora
+    - microsoft-office
+    - rstudio
+    - toggl
+
+- name: Development tools
+  homebrew_cask:
+    name: "{{item}}"
+    state: present
+  with_items:
+    - gitkraken
+    - vagrant
+    - vagrant-manager
+    - wireshark
+    - docker
+    - kitematic
+    - postgres
+    - rubymine
+    - pycharm
+    - vmware-fusion
+  tags: [development]
+
+- name: Samsung SSD Encryption
+  block:
+    - get_url:
+        url: http://downloadcenter.samsung.com/content/SW/201710/20171030152312901/T3_Security_Enabler_for_Mac.pkg
+        dest: ~/Downloads/samsung-t3-installer.pkg
+    - command: installer -pkg ~/Downloads/samsung-t3-installer.pkg -target /
+      become: true
 
 # see: https://github.com/OJFord/loginitems
 # example: $ loginitems-add name path hide

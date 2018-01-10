@@ -6,27 +6,49 @@ l linux only
 
 User
 -----
+* backblaze [m]+
+* bettertouchtool [m]+
 * firefox +
 * google-chrome +
+* google-play-music-player +
+* hermes [m]+
 * iterm2 [m]+
 * mackup [m]
+* microsoft-office [m]+
+* musicbrainz-picard +
+* plex-media-player +
+* rstudio +
 * terminator [l]+
 * todoist [m]+
+* toggl +
+* transmission
+* typora +
 * vlc +
 * xdg directory spec
 * yadm
-* zim
-
+* zim    
+    
 
 Dev
 ----
+* docker
 * git
+* gitkraken +
+* kitematic +
+* postgres
+* pycharm +
+* rubymine +
 * sublime text +
+* vagrant
+* vagrant-manager [m]+
+* vmware-fusion [m]+
+* wireshark +
 
 
 DevOps
 ------
 * ansible
+* ubiquiti-unifi-controller [m]+
 
 
 System
