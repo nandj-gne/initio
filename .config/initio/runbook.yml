@@ -37,8 +37,6 @@
     - include_vars: "{{ item }}"
       with_fileglob:
         - ../config.yml
-    - meta: end_play
-      when: endpoint not in endpoints
     - name: "Preflight checks"
       include_tasks: playbooks/preflight.yml
 
@@ -59,8 +57,9 @@
 #
 # Endpoint specifics
 #
+# hack: workaround until ansible fixes include_role name eval
+# see: https://github.com/ansible/ansible/pull/33386
   tasks:
-    - include_role:
-        name: "{{endpoint}}"
-      when: endpoint is defined
+    - include_role: name=laptop
+      when: endpoint == "laptop"
 

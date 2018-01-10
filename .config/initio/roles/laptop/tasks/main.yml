@@ -16,3 +16,10 @@
   when: distros.ubuntu
 
   
+#
+# Tooling
+#
+- include_role: name=terminal
+- include_role: name=sublime-text
+- include_role: name=development
+  tags: [development]

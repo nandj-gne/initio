@@ -23,5 +23,4 @@
 # Yubikey
 # 
 - name: Setup Yubikey
-  include_role:
-    name: yubikey
+  include_role: name=yubikey

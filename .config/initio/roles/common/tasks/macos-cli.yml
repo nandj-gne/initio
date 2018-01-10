@@ -16,11 +16,16 @@
     - wakeonlan
     - wget
 
-- homebrew_cask:
-    name: "{{item}}"
-    state: present
-  with_items:
-    - osxfuse
+- name: OSXFuse
+  block:
+    - name: sudo brew workaround
+      command: "echo none"
+      become: yes
+    - homebrew_cask:
+        name: "{{item}}"
+        state: present
+      with_items:
+        - osxfuse
 
 - name: Override system curl
   block:

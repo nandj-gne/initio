@@ -5,7 +5,7 @@
     endpoint: laptop
     endpoint_type: desktop # desktop as in GUI OS
   vars_files:
-    - config.yml
+    - default.config.yml
 
   pre_tasks:
     - name: "Preflight checks"

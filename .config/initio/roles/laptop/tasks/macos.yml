@@ -6,8 +6,7 @@
   become: true
 
 - name: MacOS Prefs
-  include_role:
-    name: "macos-prefs"
+  include_role: name=macos-prefs
 
 - name: Wipe all (default) app icons from the Dock
   osx_defaults:
@@ -62,32 +61,18 @@
     - marshallofsound-google-play-music-player
   tags: [home, personal]
 
-- homebrew_cask:
-    name: "{{item}}"
-    state: present
-  with_items:
-    - bettertouchtool
-    - typora
-    - microsoft-office
-    - rstudio
-    - toggl
-
-- name: Development tools
-  homebrew_cask:
-    name: "{{item}}"
-    state: present
-  with_items:
-    - gitkraken
-    - vagrant
-    - vagrant-manager
-    - wireshark
-    - docker
-    - kitematic
-    - postgres
-    - rubymine
-    - pycharm
-    - vmware-fusion
-  tags: [development]
+- name: Office & productivity
+  block:
+    - homebrew_cask:
+        name: "{{item}}"
+        state: present
+      with_items:
+        - bettertouchtool
+        - typora
+        - microsoft-office
+        - rstudio
+        - toggl
+  tags: [localtest]
 
 - name: Samsung SSD Encryption
   block:

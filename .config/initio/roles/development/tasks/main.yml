@@ -1,0 +1,28 @@
+---
+
+#
+# MacOS
+#
+- name: Development tools
+  block:    
+    - homebrew_cask:
+        name: "{{item}}"
+        state: present
+      with_items:
+        - gitkraken
+        - vagrant
+        - vagrant-manager
+        - wireshark
+        - docker
+        - kitematic
+        - postgres        
+    - homebrew_cask:
+        name: "{{item}}"
+        state: present
+      with_items:
+        - rubymine
+        - pycharm
+        - vmware-fusion
+      tags: [localtest]
+  tags: [development]
+  when: distro.macos

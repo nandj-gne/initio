@@ -1,5 +1,9 @@
 ---
 
+- name: sudo brew workaround
+  command: "echo none"
+  become: yes
+
 - homebrew:
     name: "{{item}}"
     state: present
@@ -18,11 +22,13 @@
     - veracrypt
     - vlc
 
-- command: "echo none"
-  become: yes
-
-- homebrew_cask:
-    name: "{{item}}"
-    state: present
-  with_items:
-    - gpg-suite
+- name: GPG Suite
+  block:
+    - name: sudo brew workaround
+      command: "echo none"
+      become: yes
+    - homebrew_cask:
+        name: "{{item}}"
+        state: present
+      with_items:
+        - gpg-suite
