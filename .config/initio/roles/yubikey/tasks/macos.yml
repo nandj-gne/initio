@@ -26,6 +26,7 @@
     name: "{{item}}"
     state: present
   with_items:
+    - yubico-authenticator
     - yubico-yubikey-manager
     - yubico-yubikey-piv-manager
     - yubico-yubikey-personalization-gui
