@@ -1,13 +1,34 @@
 ---
 
+#
+# Git
+#
 - name: Git configs
   file:
     src: ".config/git/gitconfig"
     dest: "{{user_home}}/.gitconfig"
     state: link
+  tags: [symlink]
+#
+# SSH
+#
+- stat:
+    path: "{{user_home}}/.ssh"
+  register: ssh
+  tags: [symlink]
 
-- name: SSH configs
-  file:
+- block:
+    - command: mv {{user_home}}/.ssh/* ~/.config/ssh/
+    - command: mv {{user_home}}/.ssh/.* ~/.config/ssh/
+    - file:
+        path: {{user_home}}/.ssh
+        state: absent
+  when: ssh.stat.isdir
+  tags: [symlink]
+
+- file:
     src: "~/.config/ssh"
     dest: "{{user_home}}/.ssh"
     state: link
+  tags: [symlink]
+  
