@@ -81,6 +81,12 @@
         - microsoft-office
         - rstudio
         - toggl
+    - homebrew_cask:
+        name: "{{item}}"
+        state: present
+      with_items:
+        - microsoft-office
+      tags: [blockblock]
   tags: [nobuild]
 
 - name: Samsung SSD Encryption
@@ -90,6 +96,7 @@
         dest: "{{user_home}}/Downloads/samsung-t3-installer.pkg"
     - command: "installer -pkg {{user_home}}/Downloads/samsung-t3-installer.pkg -target /"
       become: true
+  tags: [prompt, nobuild]
 
 
 # Uses macbuilds launcpad helper script
@@ -104,7 +111,7 @@
 # example: $ loginitems-add name path hide
 - name: Set login items
   shell: >
-    {{initio.bin}}/loginitems-add {{item.name}} /Applications/{{item.name}} {{item.value}}
+    {{initio.bin}}/loginitems-add {{item.key}} /Applications/{{item.key}} {{item.value}}
   with_dict:
     Dropbox: false
     iTerm: false
