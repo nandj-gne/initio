@@ -18,8 +18,10 @@
   tags: [symlink]
 
 - block:
-    - command: mv {{user_home}}/.ssh/* ~/.config/ssh/
-    - command: mv {{user_home}}/.ssh/.* ~/.config/ssh/
+    - shell: |
+        mv {{user_home}}/.ssh/* ~/.config/ssh/
+        mv {{user_home}}/.ssh/.* ~/.config/ssh/
+      ignore_errors: yes
     - file:
         path: "{{user_home}}/.ssh"
         state: absent
