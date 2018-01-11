@@ -63,6 +63,7 @@ if ! [ -f "$ansible_dir/runbook.yml" ]; then
     git init .
     git remote add origin $initio_repo
     git pull origin $branch
+    git checkout $branch
 fi
 
 
