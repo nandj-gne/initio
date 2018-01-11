@@ -5,6 +5,7 @@
     url: "{{initio.ssh.authorized_keys}}"
     dest: ~/.ssh/authorized_keys
     mode: 0600
+  ignore_errors: yes
 
 - template:
     src: macos/sshd_config.j2
