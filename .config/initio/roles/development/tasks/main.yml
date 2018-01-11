@@ -23,6 +23,6 @@
         - rubymine
         - pycharm
         - vmware-fusion
-      tags: [localtest]
+      tags: [nobuild]
   tags: [development]
   when: distro.macos

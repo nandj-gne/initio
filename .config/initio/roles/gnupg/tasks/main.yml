@@ -33,14 +33,21 @@
 #
 # XDG Spec
 #
+- stat:
+    path: ~/.gnupg
+  register: gnupg_dir
 
-- file:
+- stat:
     path: "{{xdg.config}}/gnupg"
-    state: directory
+  register: gnupg_conf_dir
+
+- name: Relocate GnuPG folder
+  command: mv ~/.gnupg "{{xdg.config}}/gnupg"
+  when: gnupg_dir.stat.exists and not gnupg_conf_dir.stat.exists
 
 - name: Symlink gnupg
   file:
-    src: ".config/gnupg"
+    src: "~/.config/gnupg"
     dest: "{{user_home}}/.gnupg"
     state: link
 

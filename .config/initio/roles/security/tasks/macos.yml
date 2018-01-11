@@ -1,5 +1,8 @@
 ---
-
+- name: sudo brew workaround
+  command: "echo none"
+  become: yes
+  
 #
 # Software
 #
@@ -16,32 +19,42 @@
     - taskexplorer
     - whatsyoursign  
 
-- block:
-    homebrew_cask:
-      name: "{{item}}"
-      state: present
-    with_items:
-      - little-snitch
-      - micro-snitch
-      - cryptomator
-      - dnscrypt
-      - keepassxc
-      - blockblock
+- name: Desktop security tools
+  block:
+    - homebrew_cask:
+        name: "{{item}}"
+        state: present
+      with_items:
+        - little-snitch
+        - micro-snitch
+        - cryptomator
+        - dnscrypt
+        - keepassxc
+        - blockblock
   when: endpoint_type == "desktop"
 
-- block:
-    homebrew_cask:
-      name: "{{item}}"
-      state: present
-    with_items:
-      - murus
-      - murus-menulet
+- name: Pf GUI manager
+  block:
+    - homebrew_cask:
+        name: "{{item}}"
+        state: present
+      with_items:
+        - murus
+        - murus-menulet
   when: endpoint_type == "console"
 
 
 #
 # Security Prefs
 #
+# - name: SSH server
+#   block:
+#     - command: systemsetup -setremotelogin off
+#       become: true
+#       when: endpoint_type == "desktop"
+#     - command: systemsetup -setremotelogin on
+#       become: true
+#       when: endpoint_type == "console"
 
 - name: Require password immediately after sleep or screen saver begins
   block:

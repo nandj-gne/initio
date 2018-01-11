@@ -10,6 +10,9 @@
     defaults write /Library/Preferences/com.apple.loginwindow DisableFDEAutoLogin -bool YES
   become: true
 
+- homebrew_tap:
+    name: caskroom/drivers
+
 - homebrew:
     name: "{{item}}"
     state: present
@@ -32,26 +35,35 @@
     - yubico-yubikey-personalization-gui
 
 #
-# PAM logon configuration
+# Load saved Yubico secrets
 #
 - stat:
     path: ~/Secrets/yubico
-  register: yubco_secret_dir
+  register: yubico_secret_dir
 
 - name: Symlink Yubikey secret
   file:
     src: ~/Secrets/yubico
     dest: ~/.ybico
     state: link
-  when: yubco_secret_dir.stat.exists
+  when: yubico_secret_dir.stat.exists
 
-- name: Setup Yubikey secret
-  block:
-    - file:
-        path: ~/.yubico
-        mode: 0700
-    - pause:
-        prompt: Insert Yubikye, return when ready
+- file:
+    path: ~/.yubico
+    mode: 0700
+    state: directory
+  when: not yubico_secret_dir.stat.exists
+
+
+#
+# Create new yubikey challenge
+#
+- pause:
+    prompt: Create new challenge? [No]|Yes
+  register: new_yubikey_challenge
+  tags: [nobuild, prompt]
+
+- block:
     - name: Save challenge
       command: ykpamcfg -2
     - name: Verify new challenge
@@ -59,18 +71,22 @@
         path: "{{item}}"
       with_fileglob:
         - "~/.yubico/challenge-*"
-    - name: Verify library
-      stat:
-        path: /usr/local/lib/security/pam_yubico.so
-    - template:
-        src: "macos/{{item}}.j2"
-        dest: "/etc/pamd.d/{{item}}"
-        mode: 0644
-      with_items:
-        - screensaver
-        - authorization   
-  when: not yubco_secret_dir.stat.exists
+  when: new_yubikey_challenge is defined and (new_yubikey_challenge.user_input | match("^[Yy](es)?$"))
+  tags: [nobuild]
 
 
-
-
+#
+# Activate PAM module
+#
+- name: Verify library
+  stat:
+    path: /usr/local/lib/security/pam_yubico.so
+- template:
+    src: macos/{{item}}.j2
+    dest: "/etc/pam.d/{{item}}"
+    mode: 0644
+  with_items:
+    - screensaver
+    - authorization   
+  become: true
+  

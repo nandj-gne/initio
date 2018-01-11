@@ -4,12 +4,17 @@
 #
 
 - name: Use a dark menu bar / dock
-  osx_defaults:
-    domain: NSGlobalDomain
-    key: AppleInterfaceStyle
-    type: string
-    value: "Dark"
-    state: present
+  block:
+    - osx_defaults:
+        domain: NSGlobalDomain
+        key: AppleInterfaceStyle
+        type: string
+        value: "Dark"
+        state: present
+    - homebrew:
+        name: dark-mode
+        state: present
+    - command: dark-mode on
 
 - name: Show the ~/Library folder
   command: chflags nohidden ~/Library
@@ -26,7 +31,7 @@
     domain: com.apple.universalaccess
     key: reduceTransparency
     type: bool
-    value: true
+    value: false
     state: present
 
 - osx_defaults:

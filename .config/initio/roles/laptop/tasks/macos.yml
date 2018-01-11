@@ -5,6 +5,10 @@
   with_dict: "{{power_settings.macos}}"
   become: true
 
+# - name: Ensure ssh remote is off
+#   command: systemsetup -setremotelogin off
+#   become: true
+
 - name: MacOS Prefs
   include_role: name=macos-prefs
 
@@ -13,6 +17,7 @@
     domain: com.apple.dock
     key: persistent-apps
     type: array
+    value: []
 
 # see: https://github.com/kcrawford/dockutil
 - name: Setup Dock
@@ -21,32 +26,35 @@
     - Launchpad
     - Safari
     - Firefox
-    - Chrome
-    - iCal
+    - "Google Chrome"
+    - Calendar
     # - Todoist
     - Reminders
     - iTerm
 
-# Uses macbuilds launcpad helper script
-# see: https://github.com/fgimian/macbuild/blob/master/extras/launchpad.py
-# example: ./extras/launchpad.py build host_vars/localhost/launchpad.yaml
-- name: Organize launchpad
-  shell: ~/.local/lib/initio/launchpad.py build ~/.config/initio/roles/laptop/files/launchpad.yml
-  tags: [home, personal]
 
 #
 # Apps
 #
+
+- command: mas account
+  register: app_store_sigin
+
+- pause:
+    prompt: Signin to the Apple App Store, then hit return to continue
+  when: not (app_store_sigin.stdout | match("@"))
+  tags: [nobuild, prompt]
+
 - name: Todoist
   block:
     - command: mas install 585829637
-    - command: dockutil --add /Applications/Todoist.app --after 'iCal'
-  tags: [home, personal]
+    - command: dockutil --add /Applications/Todoist.app --after 'Calendar'
+  tags: [nobuild, home, personal]
 
-- command: mas install
+- command: mas install {{item}}
   with_items:
     - 1160374471 # PiPifier
-  tags: [home, personal]
+  tags: [nobuild, home, personal]
 
 - homebrew_cask:
     name: "{{item}}"
@@ -72,15 +80,24 @@
         - microsoft-office
         - rstudio
         - toggl
-  tags: [localtest]
+  tags: [nobuild]
 
 - name: Samsung SSD Encryption
   block:
     - get_url:
         url: http://downloadcenter.samsung.com/content/SW/201710/20171030152312901/T3_Security_Enabler_for_Mac.pkg
-        dest: ~/Downloads/samsung-t3-installer.pkg
-    - command: installer -pkg ~/Downloads/samsung-t3-installer.pkg -target /
+        dest: "{{user_home}}/Downloads/samsung-t3-installer.pkg"
+    - command: "installer -pkg {{user_home}}/Downloads/samsung-t3-installer.pkg -target /"
       become: true
+
+
+# Uses macbuilds launcpad helper script
+# see: https://github.com/fgimian/macbuild/blob/master/extras/launchpad.py
+# example: ./extras/launchpad.py build host_vars/localhost/launchpad.yaml
+- name: Organize launchpad
+  shell: ~/.local/lib/initio/launchpad.py build ~/.config/initio/roles/laptop/files/launchpad.yml
+  tags: [home, personal]
+
 
 # see: https://github.com/OJFord/loginitems
 # example: $ loginitems-add name path hide

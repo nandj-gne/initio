@@ -31,14 +31,6 @@
     type: string
     value: "SCcf"
 
-- name: Expand File Info panes General, Open with, and Sharing & Permissions
-  shell: >
-    defaults write com.apple.finder FXInfoPanesExpanded -dict 
-      General -bool true 
-      OpenWith -bool true
-      Privileges -bool true
-  become: true
-
 - name: Finder - show all filename extensions
   osx_defaults:
     domain: NSGlobalDomain
