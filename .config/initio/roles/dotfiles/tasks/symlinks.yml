@@ -21,7 +21,7 @@
     - command: mv {{user_home}}/.ssh/* ~/.config/ssh/
     - command: mv {{user_home}}/.ssh/.* ~/.config/ssh/
     - file:
-        path: {{user_home}}/.ssh
+        path: "{{user_home}}/.ssh"
         state: absent
   when: ssh.stat.isdir
   tags: [symlink]
@@ -31,4 +31,3 @@
     dest: "{{user_home}}/.ssh"
     state: link
   tags: [symlink]
-  
