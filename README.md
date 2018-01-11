@@ -1,5 +1,5 @@
-initio
-=======
+Expecto Initio
+===============
 
 *Endpoint and personal infra provisioning, like magic*
 
