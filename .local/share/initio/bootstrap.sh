@@ -6,9 +6,9 @@
 #
 
 initio_repo="https://github.com/jnand/initio.git"
-tmp_dir="/tmp/initio"
+branch="${INITIO_BRANCH:-master}"
 system_type=$(uname -s)
-ansible_dir="$tmp_dir/.config/initio"
+ansible_dir="$HOME/.config/initio"
 
 
 #
@@ -56,11 +56,13 @@ fi
 
 
 #
-# Initial playbooks
+# Expecto Initio
 #
 if ! [ -f "$ansible_dir/runbook.yml" ]; then
-    mkdir -p $tmp_dir
-    git clone $initio_repo $tmp_dir
+    cd $HOME
+    git init .
+    git remote add origin $initio_repo
+    git pull origin $branch
 fi
 
 
