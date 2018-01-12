@@ -60,3 +60,14 @@
     - include_role: name=laptop
       when: endpoint == "laptop"
 
+
+#
+# Cleanup
+#
+  post_tasks:
+    - name: Remove git dir from boostrap checkout
+      file:
+        path: ~/.git
+        state: absent
+
+
