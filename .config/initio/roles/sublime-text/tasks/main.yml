@@ -23,10 +23,10 @@
       register: sublime_test_user_path
     - block:
         - name: Ensure path exists
-            file:
-              path: "{{sublime_text.user.path}}"
-              state: directory
-              recurse: yes
+          file:
+            path: "{{sublime_text.user.path}}"
+            state: directory
+            recurse: yes
         - name: Remove default directory
           file:
             path: "{{sublime_text.user.path}}"
