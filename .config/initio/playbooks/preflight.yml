@@ -15,6 +15,9 @@
     endpoint_type: "console"
   when: endpoint_type is not defined
 
+#
+# Workaround for distro match shorthand
+#
 - set_fact:
     distro:
       macos: true
