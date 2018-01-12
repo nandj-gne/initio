@@ -172,3 +172,4 @@ References
 6. Terminal Colors. https://github.com/mbadolato/iTerm2-Color-Schemes
 7. MacOS Playbooks. https://github.com/mtneug/cfg_mgmt-macos
 8. Macbuild. https://github.com/fgimian/macbuild
+9. Zshenv. https://github.com/gverilla/dotfiles
