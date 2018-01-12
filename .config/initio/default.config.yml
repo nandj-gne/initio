@@ -25,7 +25,7 @@ initio:
 
   # location of bootstrap cache files
   tmp: "/tmp/initio"
-  bin: "~/.local/lib/inito"
+  bin: "~/.local/lib/initio"
 
   # playbook alias
   playbooks: "{{playbook_dir}}/playbooks"
