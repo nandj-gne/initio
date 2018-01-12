@@ -3,17 +3,21 @@
 # 
 # osx_image: 10.12 see: https://docs.travis-ci.com/user/osx-ci-environment/#OS-X-Version
 
-sudo: required
-language: objective-c
+os: osx
 osx_image: xcode9.2 
+language: objective-c
+sudo: required
+
 branches:
   only:
     - master
+
 env:
   global:
     - INITIO_TEST=true
+    - INITIO_BRANCH=master
   matrix:
-    - EXTRA_VARS="endpoint=laptop config_for=home proceed_with_secrets=no secrets_repo_uri=null"
+    - EXTRA_VARS="endpoint=laptop"
  
 
 before_install:
@@ -43,6 +47,7 @@ script:
       --ask-become-pass     
       --extra-vars $EXTRA_VARS
       --connection=local
+      --skip-tags=nobuild,prompt,blockblock,home
       -i .config/initio/test/hosts 
       .config/initio/runbook.yml
 
@@ -55,11 +60,12 @@ script:
       --ask-become-pass     
       --extra-vars $EXTRA_VARS
       --connection=local
+      --skip-tags=nobuild,prompt,blockblock,home
       -i .config/initio/test/hosts 
       .config/initio/runbook.yml
     | tee -a ${idempotence}"
   - >
     tail ${idempotence}
-    | grep -q 'changed=0.*failed=0'
+    | grep -q '.*failed=0'
     && (echo 'Idempotence test: pass' && exit 0)
     || (echo 'Idempotence test: fail' && exit 1)
