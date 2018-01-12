@@ -26,7 +26,7 @@
     - Launchpad
     - Safari
     - Firefox
-    - "Google Chrome"
+    - Google Chrome
     - Calendar
     # - Todoist
     - Reminders
@@ -111,7 +111,7 @@
 # example: $ loginitems-add name path hide
 - name: Set login items
   shell: >
-    {{initio.bin}}/loginitems-add {{item.key}} /Applications/{{item.key}} {{item.value}}
+    {{initio.bin}}/loginitems-add {{item.key}} /Applications/{{item.key}}.app {{item.value}}
   with_dict:
     Dropbox: false
     iTerm: false
