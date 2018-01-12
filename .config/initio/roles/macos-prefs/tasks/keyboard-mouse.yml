@@ -30,12 +30,12 @@
     type: bool
     value: false
 
-- name: Set a blazingly fast keyboard repeat rate
+- name: Set a fast keyboard repeat rate
   osx_defaults:
     domain: NSGlobalDomain
     key: KeyRepeat
-    type: float
-    value: 0.0001
+    type: int
+    value: 1
 
 - name: Disable auto-correct
   osx_defaults:
