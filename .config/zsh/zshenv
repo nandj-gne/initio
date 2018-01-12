@@ -55,6 +55,7 @@ export PIP_CONFIG_FILE="$XDG_CONFIG_HOME/pip/pip.conf"
 export PIP_LOG_FILE="$XDG_DATA_HOME/pip/log"
 export PSQL_HISTORY="$XDG_DATA_HOME/psql/history"
 export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/pythonrc"
+export VAGRANT_HOME="$XDG_DATA_HOME/vagrant"
 export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
 export WGETRC="$XDG_CONFIG_HOME/wget/wgetrc"
 
