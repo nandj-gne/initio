@@ -8,17 +8,28 @@
     - homebrew_cask:
         name: sublime-text
         state: present
-    - get_url:
-        url: "{{sublime_text.package_control_uri}}"
-        dest: "~Library/Application Support/Sublime Text 3/Installed Packages/Package Control.sublime-package"
+    - name: Ensure package path exists
+      file:
+        path: "{{sublime_text.package_control.path}}"
+        state: directory
+        recurse: yes
+    - name: Initialized with package control
+      get_url:
+        url: "{{sublime_text.package_control.uri}}"
+        dest: "{{sublime_text.package_control.path}}/{{sublime_text.package_control.name}}"
+    - name: Ensure path exists
+      file:
+        path: "{{sublime_text.user.path}}"
+        state: directory
+        recurse: yes
     - name: Remove default directory
       file:
-        path: "~Library/Application Support/Sublime Text 3/Packages/User"
+        path: "{{sublime_text.user.path}}"
         state: absent
     - name: Symlink sublime user configs
       file:
         src: "{{xdg.config}}/sublime-text-3/Packages/User"
-        dest: "~Library/Application Support/Sublime Text 3/Packages/User"
+        dest: "{{sublime_text.user.path}}"
         state: link
   when: distro.macos
 

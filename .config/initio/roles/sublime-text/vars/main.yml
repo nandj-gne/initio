@@ -1,5 +1,9 @@
 ---
 
 sublime_text:
-  package_control_uri:
-    "https://packagecontrol.io/Package%20Control.sublime-package"
+  user:
+    path: "~Library/Application Support/Sublime Text 3/Packages/User"
+  package_control:
+    name: "Package Control.sublime-package"
+    path: "~Library/Application Support/Sublime Text 3/Installed Packages"
+    uri: "https://packagecontrol.io/Package%20Control.sublime-package"
