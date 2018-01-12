@@ -12,10 +12,15 @@
         - gitkraken
         - vagrant
         - vagrant-manager
-        - wireshark
-        - docker
         - kitematic
-        - postgres        
+    - homebrew_cask: 
+        name: "{{item}}"
+        state: present
+      with_items:
+        - wireshark
+        - docker  
+        - postgres
+      tags: [blockblock]
     - homebrew_cask:
         name: "{{item}}"
         state: present
@@ -24,5 +29,7 @@
         - pycharm
         - vmware-fusion
       tags: [nobuild]
-  tags: [development]
+    - include_role: name=terminal
+    - include_role: name=sublime-text
   when: distro.macos
+  tags: [development]
