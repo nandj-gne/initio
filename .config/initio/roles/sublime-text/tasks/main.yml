@@ -17,20 +17,26 @@
       get_url:
         url: "{{sublime_text.package_control.uri}}"
         dest: "{{sublime_text.package_control.path}}/{{sublime_text.package_control.name}}"
-    - name: Ensure path exists
-      file:
+
+    - stat:
         path: "{{sublime_text.user.path}}"
-        state: directory
-        recurse: yes
-    - name: Remove default directory
-      file:
-        path: "{{sublime_text.user.path}}"
-        state: absent
-    - name: Symlink sublime user configs
-      file:
-        src: "{{xdg.config}}/sublime-text-3/Packages/User"
-        dest: "{{sublime_text.user.path}}"
-        state: link
+      register: sublime_test_user_path
+    - block:
+        - name: Ensure path exists
+            file:
+              path: "{{sublime_text.user.path}}"
+              state: directory
+              recurse: yes
+        - name: Remove default directory
+          file:
+            path: "{{sublime_text.user.path}}"
+            state: absent
+        - name: Symlink sublime user configs
+          file:
+            src: "{{xdg.config}}/sublime-text-3/Packages/User"
+            dest: "{{sublime_text.user.path}}"
+            state: link
+      when: not sublime_test_user_path.stat.islnk      
   when: distro.macos
 
 
