@@ -15,21 +15,41 @@ This is a collection of [ansible](https://www.ansible.com/) playbooks for provis
 Quick Start
 -----------
 
-Edit [`config.yml`](.config/initio/config.yml) as needed. Most defaults are specific to my setup. Remember to update the deploy key path for the "Secrets" repo before provisioning.
+Edit [`default.config.yml`](.config/initio/default.config.yml) as needed. Most defaults are specific to my setup. [`config.yml`](.config/initio/config.yml) offers and easy way to override settings for testing. Remember to update the deploy key path for the "Secrets" repo before provisioning.
 
-Use the included `bootstrap.sh` file to setup and execute the runbook.
+Use the included [`bootstrap.sh`](.local/share/initio/bootstrap.sh) file to setup and execute the runbook (locally and interactively).
 
 ```
 ❯ curl https://raw.githubusercontent.com/jnand/initio/master/.local/share/initio/bootstrap.sh --output bootstrap.sh
 ❯ ./bootstrap.sh --skip-tags="home"
 ```
 
-The runbook will ask about the setup: laptop, workstation, headnode, fileserver, or compute node. Each type has its own playbook found in `.config/initio/playbooks`, useful for idividual push-deploys. Use the ansible `--tags|--skip-tags=` flag to provision as a home or work box. Tasks tagged **`home`** include personal configs and repos, `--skip-tags=home` will exclude personal info and only uses common settings and public repos -- *i.e.* a box configured for work _**without**_ your personal dropbox, github keys, or fileserver creds etc... 
+The runbook will ask about the setup: laptop, workstation, headnode, fileserver, or compute node. Each type has its own playbook found in [`.config/initio/playbooks`](.config/initio/playbooks), useful for idividual push-deploys. Use the ansible `--tags|--skip-tags=` flag to provision as a home or work box. Tasks tagged **`home`** include personal configs and repos; `--skip-tags=home` will exclude personal info and only uses common settings and public repos -- *i.e.* a box configured for work _**without**_ your personal dropbox, github keys, or fileserver creds etc... 
 
 
 
 :exclamation: Remember to check the [Manual Post-Install](#manual-install) checklist.
 
+
+Run Modes
+----------
+
+### Tags ###
+
+|    Tag     | Description |
+|:-----------|:------------|
+|blockblock  | task raises a security dialog (macos) |
+|development | dev tooling |
+|home, personal | personal configs, secrets, and private repos |
+|nobuild     | skip tasks during automated builds, i.e. downloading large binaries |
+|pamlockout  | might cause fail secure lockouts |
+|prompt      | task raises a user prompt, cli/gui |
+|symlink     | symlink creations |
+
+
+`--skip-tags=prompt,blockblock` useful for pushing out changes via ansible ssh
+`--tags=symlink` useful when you only need to upldate config links
+`--tags=development` push out new dev tooling 
 
 Built with
 -----------
@@ -65,24 +85,26 @@ initio aims to keep the home directory clean by consolidating files into `~/.con
 └── zsh
 ```
 
-Within `.config` is `initio`, where all ansible playbooks and support files are kept. The master playbook is `runbook.yml`. Additional requirements via ansible-galaxy are in the `requirements.yml` file, see the [`bootstrap.sh`](.local/share/initio/bootstrap.sh) file for an example.
+Within `.config` is `initio`, where all ansible playbooks and support files are kept. The master playbook is [`runbook.yml`](.config/initio/runbook.yml). Additional requirements via ansible-galaxy are in the [`requirements.yml`](.config/initio/requirements.yml) file, see the [`bootstrap.sh`](.local/share/initio/bootstrap.sh) file for an example.
 ```
 ├── initio
    ├── config.yml
+   ├── default.config.yml
    ├── hosts
-   ├── playbooks
-   │   └── laptop.yml
+   ├── playbooks
+   │   ├── laptop.yml
+   │   └── preflight.yml
    ├── requirements.yml
    ├── roles
    │   ├── dotfiles
    │   ├── gnupg
    │   ├── secrets
-   │   ├── xdg-base-dir-spec
+   │   ...
    │   └── zsh
    └── runbook.yml
 ```
 
-XDG calls for all non configuration files to be stored in `~/.local`. External tools like YADM are cloned into the `lib` dir and symlinked to `bin`. The included `.zshrc` adds `~/.local/bin` to the user's `PATH` envar. Application data and infrequently used support scripts are kept in the `share` dir. YADM store encrypted secrets in `files.gpg` which is cloned from a private repo during setup.
+XDG calls for all non configuration files to be stored in `~/.local`. External tools like YADM are cloned into the `lib` dir and symlinked to `bin`. The included `.zshrc` adds `~/.local/bin` to the user's `PATH` envar. Application data and infrequently used support scripts are kept in the `share` dir. YADM store encrypted secrets in `files.gpg` which is cloned from a private "secrets" repo during setup.
 
 ```
 .local
@@ -113,6 +135,7 @@ Included Stuff
 * OpenSSH
 * XDG Directory Spec
 * YADM
+* Yubikey PAM
 * ZSH
 * ZIM
 * ... [more](.config/MANIFEST.md)
