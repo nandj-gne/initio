@@ -11,9 +11,15 @@
 #
 # Configuration tags
 # ------------------ 
-# home     - personal configs, secrets, and private repos
+# home        - personal configs, secrets, and private repos
 # personal
+# nobuild     - skip task during autoamted builds
+# prompt      - task raises a user prompt
+# blockblock  - task raises a security dialog (macos)
+# development - dev tooling
+# symlink     - symlink creations
 #
+# ---
 # example: $ ansible-playbook --skip-tags "home"
 
 
