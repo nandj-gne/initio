@@ -5,15 +5,15 @@
 #
 - block:
     - include_tasks: macos.yml
-  when: distros.macos
+  when: distro.macos
 
 
 #
 # Linux
 #
 - block:
-    - include_tasks: ubuntu.yml
-  when: distros.ubuntu
+    - include_tasks: debian.yml
+  when: distro.debian
 
   
 #
