@@ -5,10 +5,6 @@
   with_dict: "{{power_settings.macos}}"
   become: true
 
-# - name: Ensure ssh remote is off
-#   command: systemsetup -setremotelogin off
-#   become: true
-
 - name: MacOS Prefs
   include_role: name=macos-prefs
 

@@ -19,6 +19,7 @@
     src: "{{yadm.bin}}"
     dest: "{{xdg.local}}/bin/yadm"
     state: link
+  tags: [symlink]
 
 
 #
@@ -60,4 +61,5 @@
 
 - name: Symlink individual dotfiles
   include_tasks: symlinks.yml
+  tags: [symlink]
   

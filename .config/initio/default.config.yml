@@ -18,6 +18,7 @@
 # blockblock  - task raises a security dialog (macos)
 # development - dev tooling
 # symlink     - symlink creations
+# pamlockout  - might cause fail secure lockouts
 #
 # ---
 # example: $ ansible-playbook --skip-tags "home"

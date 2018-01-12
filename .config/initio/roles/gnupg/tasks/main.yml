@@ -50,6 +50,7 @@
     src: "~/.config/gnupg"
     dest: "{{user_home}}/.gnupg"
     state: link
+  tags: [symlink]
 
 - template:
     src: "{{item}}.j2"

@@ -9,6 +9,8 @@
     dest: "{{user_home}}/.gitconfig"
     state: link
   tags: [symlink]
+
+
 #
 # SSH
 #

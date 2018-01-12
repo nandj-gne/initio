@@ -43,3 +43,28 @@
     key: NSTextShowsControlCharacters
     type: bool
     value: true
+
+- name: Enable the Develop menu and the Web Inspector in Safari
+  block:
+    - osx_defaults:
+        domain: com.apple.Safari
+        key: IncludeDevelopMenu
+        type: bool
+        value: true
+    - osx_defaults:
+        domain: com.apple.Safari
+        key: WebKitDeveloperExtrasEnabledPreferenceKey
+        type: bool
+        value: true
+    - osx_defaults:
+        domain: com.apple.Safari
+        key: com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled
+        type: bool
+        value: true
+
+- name: Enable debug menu
+  osx_defaults:
+    domain: com.apple.Safari
+    key: IncludeInternalDebugMenu
+    type: bool
+    value: true

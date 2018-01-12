@@ -47,6 +47,7 @@
     dest: ~/.ybico
     state: link
   when: yubico_secret_dir.stat.exists
+  tags: [symlink]
 
 - file:
     path: ~/.yubico
@@ -89,4 +90,5 @@
     - screensaver
     - authorization   
   become: true
+  tags: [pamlockout]
   

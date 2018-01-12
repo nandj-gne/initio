@@ -29,5 +29,6 @@
   with_items:
     - "rmtrash"
     - "rmdirtrash"
+  tags: [symlink]
 
     

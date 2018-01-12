@@ -34,4 +34,5 @@
         state: present
         install_options: with-openssl
     - command: brew link --force curl
+      tags: [symlink]
   

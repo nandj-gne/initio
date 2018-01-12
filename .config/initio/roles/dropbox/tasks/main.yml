@@ -38,6 +38,7 @@
         src: .local/lib/dropbox/dropbox.py
         dest: .local/bin/dropbox
         state: link
+      tags: [symlink]
 
     # Daemon        
     - file:

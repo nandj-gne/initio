@@ -34,8 +34,8 @@
   osx_defaults:
     domain: NSGlobalDomain
     key: KeyRepeat
-    type: int
-    value: 0
+    type: float
+    value: 0.0001
 
 - name: Disable auto-correct
   osx_defaults:
