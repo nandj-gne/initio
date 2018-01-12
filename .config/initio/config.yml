@@ -1,0 +1,7 @@
+---
+
+# computername: mylaptop
+# ssh_secrets_key: /tmp/id_rsa
+# secrets_repo: git@github.com:my/secrets.git
+# keepass_db_path: ~/Dropbox/Secure
+# keepass_database: keypass.kdbx
