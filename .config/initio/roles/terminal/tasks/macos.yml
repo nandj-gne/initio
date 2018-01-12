@@ -27,3 +27,7 @@
 
 - name: Load color profile
   command: "open {{terminal.iterm.colors}}/{{terminal_color}}.itermcolors"
+  ignore_errors: yes
+  async: 45
+  poll: 0
+  tags: [prompt]
