@@ -12,6 +12,7 @@
         - gitkraken
         - vagrant
         - vagrant-manager
+        - virtualbox
         - kitematic
     - homebrew_cask: 
         name: "{{item}}"

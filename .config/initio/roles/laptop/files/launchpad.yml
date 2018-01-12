@@ -124,6 +124,7 @@ app_layout:
           - iTerm
           - Sublime Text
           - VMware Fusion
+          - VirtualBox
       
     - Google Play Music
     - Calendar
