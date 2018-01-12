@@ -146,17 +146,20 @@ Manual Install
 
 These software packages are tighly controlled by their vendors and need manual installation, and/or registering a cloud client.
 
-| Install | Login | Config | License | Name      | URL |
-|:-------:|:-----:|:------:|:-------:|:--------- |
-| [ ]     | [ ]   | [ ]    |         |Sophos     | https://home.sophos.com
-|         | [ ]   |        |         |Dropbox    | https://www.dropbox.com/install-linux
-|         | [ ]   |        |         |Todoist    | https://todoist.com
-|         | [ ]   |        | [ ]     |Backblaze  | https://www.backblaze.com/
-|         | [ ]   |        |         |Toggl      | https://toggl.com/
-|         | [ ]   |        | [ ]     |MS Office  | https://www.office.com/
-|         | [ ]   |        | [ ]     |GitKraken  | https://www.gitkraken.com/
-|         | [ ]   |        | [ ]     |JetBrains  | https://account.jetbrains.com/login
-|         |       |        | [ ]     |VMWare     | https://www.vmware.com/products/fusion.html
+| Install | Login | Config | License | Name        | URL |
+|:-------:|:-----:|:------:|:-------:|:----------- |
+|         | [ ]   |        | [ ]     |Backblaze    | https://www.backblaze.com/
+|         | [ ]   |        |         |Dropbox      | https://www.dropbox.com/install-linux
+|         | [ ]   |        | [ ]     |GitKraken    | https://www.gitkraken.com/
+|         | [ ]   |        | [ ]     |JetBrains    | https://account.jetbrains.com/login
+| [ ]     |       |        | [ ]     |LittleSnitch | https://www.obdev.at/products/littlesnitch/index.html
+|         | [ ]   |        | [ ]     |MS Office    | https://www.office.com/
+| [ ]     | [ ]   | [ ]    |         |Sophos       | https://home.sophos.com
+|         | [ ]   |        |         |Todoist      | https://todoist.com
+|         | [ ]   |        |         |Toggl        | https://toggl.com/
+|         |       |        | [ ]     |VMWare       | https://www.vmware.com/products/fusion.html
+
+
 
 References
 ------------------
