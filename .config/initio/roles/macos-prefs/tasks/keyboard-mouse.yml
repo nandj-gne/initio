@@ -2,19 +2,13 @@
 #
 # Keyboard & Mouse
 #
+- name: Trackpad tap to click
+  osx_defaults:
+    domain: com.apple.AppleMultitouchTrackpad
+    key: Clicking
+    type: int
+    value: 1
 
-- name: Trackpad - enable tap to click
-  block:
-    - osx_defaults:
-        domain: com.apple.AppleMultitouchTrackpad
-        key: Clicking
-        type: int
-        value: 1
-    - osx_defaults:
-        domain: NSGlobalDomain
-        key: com.apple.mouse.tapBehavior
-        type: int
-        value: 1
 
 - name: Enable full keyboard access for all controls
   osx_defaults:
@@ -43,4 +37,107 @@
     key: NSAutomaticSpellingCorrectionEnabled
     type: bool
     value: false
+
+- name: Disable force click
+  osx_defaults:
+    domain: NSGlobalDomain
+    key: com.apple.trackpad.forceClick
+    type: bool
+    value: true
+
+# Possible values: OneButton, TwoButton, TwoButtonSwapped
+- name: Secondary click
+  osx_defaults:
+    domain: com.apple.AppleMultitouchMouse
+    key: MouseButtonMode
+    type: string
+    value: OneButton
+
+- name: Tap with two fingers to emulate right click
+  osx_defaults:
+    domain: com.apple.AppleMultitouchTrackpad
+    key: TrackpadRightClick
+    type: int
+    value: 1
+
+- name: Enable three finger tap (look up)
+  osx_defaults:
+    domain: com.apple.AppleMultitouchTrackpad
+    key: TrackpadThreeFingerTapGesture
+    type: int
+    value: 0
+
+- name: Mouse scroll
+  osx_defaults:
+    domain: com.apple.AppleMultitouchMouse
+    key: "{{item}}"
+    type: int
+    value: 1
+  with_items:
+    - MouseVerticalScroll
+    - MouseMomentumScroll
+    - MouseHorizontalScroll
+
+# 0 = Swipe between pages with one finger
+# 1 = Swipe between pages
+# 2 = Swipe between full screen apps with two fingers, swipe between pages with one finger (Default Mode)
+- name: Two finger horizontal swipe
+  osx_defaults:
+    domain: com.apple.AppleMultitouchMouse
+    key: MouseTwoFingerHorizSwipeGesture
+    type: int
+    value: 2
+
+- name: Two finger horizontal swipe
+  osx_defaults:
+    domain: com.apple.AppleMultitouchMouse
+    key: MouseTwoFingerHorizSwipeGesture
+    type: int
+    value: 2
+
+- name: one finger double tap
+  osx_defaults:
+    domain: com.apple.AppleMultitouchMouse
+    key: MouseOneFingerDoubleTapGesture
+    type: int
+    value: 0
+
+- name: Swipe between pages with two fingers
+  osx_defaults:
+    domain: NSGlobalDomain
+    key: AppleEnableSwipeNavigateWithScrolls
+    type: int
+    value: 0
+
+- name: Swipe between full-screen apps
+  osx_defaults:
+    domain: com.apple.AppleMultitouchTrackpad
+    key: TrackpadThreeFingerHorizSwipeGesture
+    type: int
+    value: 1
+
+- name: Enable other multi-finger gestures
+  osx_defaults:
+    domain: com.apple.AppleMultitouchTrackpad
+    key: "{{item}}"
+    type: int
+    value: 2
+  with_items:
+    - TrackpadThreeFingerVertSwipeGesture
+    - TrackpadFourFingerVertSwipeGesture
+    - TrackpadFourFingerPinchGesture
+    - TrackpadFourFingerHorizSwipeGesture
+    - TrackpadFiveFingerPinchGesture
+
+
+#
+# Unused
+#
+
+# - name: Set scroll direction
+#   osx_defaults:
+#     domain: NSGlobalDomain
+#     key: com.apple.swipescrolldirection
+#     type: bool
+#     value:  false
 
