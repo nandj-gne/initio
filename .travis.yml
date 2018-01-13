@@ -46,7 +46,7 @@ script:
       --extra-vars $EXTRA_VARS \
       --connection=local \
       --skip-tags=nobuild,prompt,blockblock,home \
-      -i .config/initio/test/hosts \
+      -i .config/initio/tests/hosts \
       .config/initio/runbook.yml
 
 
@@ -58,7 +58,7 @@ script:
       --extra-vars $EXTRA_VARS \
       --connection=local \
       --skip-tags=nobuild,prompt,blockblock,home \
-      -i .config/initio/test/hosts \
+      -i .config/initio/tests/hosts \
       .config/initio/runbook.yml \
       | tee -a ${idempotence}"
   - |
