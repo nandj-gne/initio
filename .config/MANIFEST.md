@@ -13,7 +13,7 @@ User
 * google-play-music-player +
 * hermes [m]+
 * iterm2 [m]+
-* mackup [m]
+* mackup
 * microsoft-office [m]+
 * musicbrainz-picard +
 * plex-media-player +
@@ -65,9 +65,11 @@ System
 * osxfuse [m]
 * rmtrash
 * tmux
+* tmuxinator
 * trash-cli [l]
 * tree
 * vim
+* neovim
 * wakeonlan
 * wget
 * zsh
