@@ -36,3 +36,9 @@
   when: distro.macos
   tags: [development]
 
+#
+# Common
+#
+- pip:
+    name: git+https://github.com/larsks/ansible-toolbox
+    executable: pip3
