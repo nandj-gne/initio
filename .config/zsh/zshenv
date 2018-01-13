@@ -7,8 +7,8 @@
 # Non-login, non-interactive shell
 if [[ "$SHLVL" -eq 1 && ! -o LOGIN ]]
 then
-	export EDITOR='vim'
-	export VISUAL='vim'
+	export EDITOR='nvim'
+	export VISUAL='nvim'
 	export PAGER='less'
 else
 	export EDITOR='subl -w'
