@@ -31,4 +31,7 @@
     - "rmdirtrash"
   tags: [symlink]
 
+- pip:
+    name: mackup
+    extra_args: --upgrade
     

@@ -7,6 +7,7 @@
     - git 
     # - htop # see: https://github.com/Homebrew/homebrew-core/pull/22479
     - mas
+    - mackup
     - md5deep
     - python3
     - rmtrash
