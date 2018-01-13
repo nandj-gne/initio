@@ -40,32 +40,31 @@ script:
   - "ansible-playbook -i .config/initio/tests/hosts .config/initio/runbook.yml --syntax-check"
 
   # Test the playbook.
-  - >
-    travis_wait 30 
-    ansible-playbook 
-      -vv
-      --ask-become-pass     
-      --extra-vars $EXTRA_VARS
-      --connection=local
-      --skip-tags=nobuild,prompt,blockblock,home
-      -i .config/initio/test/hosts 
+  - |
+    travis_wait 30 ansible-playbook \
+      -vv \
+      --ask-become-pass \
+      --extra-vars $EXTRA_VARS \
+      --connection=local \
+      --skip-tags=nobuild,prompt,blockblock,home \
+      -i .config/initio/test/hosts \
       .config/initio/runbook.yml
 
 
   # Test the playbook's idempotence.
   - idempotence=$(mktemp)
-  - >
-    ansible-playbook 
-      -vv
-      --ask-become-pass     
-      --extra-vars $EXTRA_VARS
-      --connection=local
-      --skip-tags=nobuild,prompt,blockblock,home
-      -i .config/initio/test/hosts 
-      .config/initio/runbook.yml
-    | tee -a ${idempotence}"
-  - >
-    tail ${idempotence}
-    | grep -q '.*failed=0'
-    && (echo 'Idempotence test: pass' && exit 0)
+  - |
+    ansible-playbook \
+      -vv \
+      --ask-become-pass \
+      --extra-vars $EXTRA_VARS \
+      --connection=local \
+      --skip-tags=nobuild,prompt,blockblock,home \
+      -i .config/initio/test/hosts \
+      .config/initio/runbook.yml \
+      | tee -a ${idempotence}"
+  - |
+    tail ${idempotence} \
+    | grep -q '.*failed=0' \
+    && (echo 'Idempotence test: pass' && exit 0) \
     || (echo 'Idempotence test: fail' && exit 1)
