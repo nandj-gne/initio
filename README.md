@@ -173,6 +173,7 @@ A full deployment test can be run against each spec'd target. `.config/initio/te
 
 **From the host os**
 ```
+❯ cd ~/.config/initio/tests
 ❯ vagrant up macos
 ```
 
