@@ -16,7 +16,7 @@ This is a collection of [ansible](https://www.ansible.com/) playbooks for provis
 Quick Start
 -----------
 
-Edit [`default.config.yml`](.config/initio/default.config.yml) as needed. Most defaults are specific to my setup. [`config.yml`](.config/initio/config.yml) offers and easy way to override settings for testing. Remember to update the deploy key path for the "Secrets" repo before provisioning.
+Edit [`default.config.yml`](.config/initio/default.config.yml) as needed. Most defaults are specific to my setup. [`config.yml`](.config/initio/config.yml) offers an easy way to override settings for testing. Remember to update the deploy key path for the "Secrets" repo before provisioning.
 
 Use the included [`bootstrap.sh`](.local/share/initio/bootstrap.sh) file to setup and execute the runbook (locally and interactively).
 
@@ -48,9 +48,9 @@ Run Modes
 |symlink     | symlink creations |
 
 
-`--skip-tags=prompt,blockblock` useful for pushing out changes via ansible ssh
-`--tags=symlink` useful when you only need to update config links
-`--tags=development` push out new dev tooling 
+`--skip-tags=prompt,blockblock` useful for pushing out changes via ansible ssh  
+`--tags=symlink` useful when you only need to update config links  
+`--tags=development` push out new dev tooling   
 
 Built with
 -----------
@@ -58,13 +58,10 @@ Built with
 <dl>
 	<dt>Ansible</dt>
 	<dd>An IT automation suite for deploying and provisioning new systems (https://www.ansible.com/)</dd>
-
 	<dt>Homebrew</dt>
 	<dd>Package management for macOS (https://brew.sh/)</dd>
-
 	<dt>Mackup</dt>
 	<dd>App setting sync and backup (https://github.com/lra/mackup)</dd>
-
 	<dt>YADM</dt>
 	<dd>Dotfile management (https://thelocehiliosan.github.io/yadm/)</dd>
 </dl>
@@ -148,7 +145,7 @@ Manual Install
 These software packages are tighly controlled by their vendors and need manual installation, and/or registering a cloud client.
 
 | Install | Login | Config | License | Name        | URL |
-|:-------:|:-----:|:------:|:-------:|:----------- |
+|:-------:|:-----:|:------:|:-------:|:----------- |:----|
 |         | [ ]   |        | [ ]     |Backblaze    | https://www.backblaze.com/
 |         | [ ]   |        |         |Dropbox      | https://www.dropbox.com/install-linux
 |         | [ ]   |        | [ ]     |GitKraken    | https://www.gitkraken.com/

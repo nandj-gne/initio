@@ -1,8 +1,8 @@
 
 
-+ gui app
-m mac only
-l linux only
+ \+ gui app
+ m mac only
+ l linux only
 
 User
 -----
