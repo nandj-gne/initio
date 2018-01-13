@@ -3,8 +3,9 @@ Expecto Initio
 
 *Endpoint and personal infra provisioning, like magic*
 
-[![Build Status][travis-badge]][travis-link]
-[![MIT licensed][mit-badge]][mit-link]
+[![Build Status](https://travis-ci.org/jnand/initio.svg?branch=master)](https://travis-ci.org/jnand/initio)
+[![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
+
 
 ![Wizards](https://i.giphy.com/media/5tlq0pRndGu8U/giphy.webp)
 
