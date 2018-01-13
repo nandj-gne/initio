@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+ansible_dir="$HOME/.config/initio"
+
+while read oldrev newrev ref
+do
+    git checkout -f
+    ansible-galaxy install -r "$ansible_dir/requirements.yml"    
+    time ansible-playbook \
+            -vv --ask-become-pass \
+            --connection=local \
+            --limit localhost \
+            --inventory "$ansible_dir/hosts" \
+            "$ansible_dir/runbook.yml"
+done

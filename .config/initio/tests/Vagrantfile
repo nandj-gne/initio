@@ -4,9 +4,18 @@ $bootstrap = "../../../.local/share/initio/bootstrap.sh"
 
 Vagrant.configure("2") do |config|
 
+    # Run bootstrap script
     config.vm.provision "shell", path: $bootstrap, env: {"INITIO_TEST" => "true"}, privileged: false
+    
+    # Install git-hook for dev/test cycle
+    config.vm.provision "file", source: "./git-hooks/post-receive", destination: ".git/hooks/post-receive"
+
+    # Shared dir, if provider supports it
     config.vm.synced_folder "../../../", "/vagrant", type: "rsync", disabled: true
 
+    #
+    # Provider
+    #
     config.vm.provider "virtualbox" do |virtualbox|
         virtualbox.gui = 1
     end

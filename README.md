@@ -187,7 +187,8 @@ After provisioning the `development` role, the [ansible-toolbox](https://github.
 
 **Developing with vagrant**
 
-The `bootstrap.sh` script checks out the initio repo into the vagrant user's home. If you have the guest os's home dir shared/mounted on your host you can develop/test directly. If share mounting isn't working, which is the case for BSD, you can set the guest os's home dir as a git remote in the repo on your host, and "push to test".
+The `bootstrap.sh` script checks out the initio repo into the vagrant user's home. If you have the guest os's home dir shared/mounted on your host you can develop/test directly. If share mounting isn't working, which is the case for BSD, you can set the guest os's home dir as a git remote in the repo on your host, and "push to test", a post-receive githook should catch the push and start ansible on the vm. _Note_ your ssh public key will need to be added to the vagrant user's authorized keys for this to work.
+
 
 
 References
