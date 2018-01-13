@@ -1,0 +1,18 @@
+---
+
+- name: Symlink mackup config
+  file:
+    src: ~/.config/mackup/mackup.cfg
+    dest: ~/.mackup.cfg
+    state: link
+
+- name: Ensure secrets repo is cloned
+  stat:
+    path: ~/Secrets/.git/config
+  register: secrets_repo
+
+- block:
+    - name: Restore mackup
+      command: mackup restore
+      ignore_errors: yes
+  when: secrets_repo.stat.exists

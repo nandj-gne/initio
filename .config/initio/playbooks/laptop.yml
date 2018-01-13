@@ -17,6 +17,7 @@
     - gnupg
     - dotfiles
     - secrets
+    - mackup
     - fonts
     - security
     - laptop
