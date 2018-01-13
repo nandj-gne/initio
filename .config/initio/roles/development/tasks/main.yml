@@ -42,3 +42,13 @@
 - pip:
     name: git+https://github.com/larsks/ansible-toolbox
     executable: pip3
+
+#
+# Ruby
+#
+- gem:
+    name: tmuxinator
+    state: latest
+    environment:
+      GEM_HOME: "{{user_home}}/.local/share/gem"
+

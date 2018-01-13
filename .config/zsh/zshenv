@@ -59,7 +59,8 @@ export VAGRANT_HOME="$XDG_DATA_HOME/vagrant"
 export VIMINIT='let $MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc" | source $MYVIMRC'
 export WGETRC="$XDG_CONFIG_HOME/wget/wgetrc"
 
-
+# Bin paths
+export PATH="$GEM_HOME/bin:$PATH"
 
 #
 # Aliase based env config
