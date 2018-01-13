@@ -43,7 +43,6 @@ script:
   - |
     travis_wait 30 ansible-playbook \
       -vv \
-      --ask-become-pass \
       --extra-vars $EXTRA_VARS \
       --connection=local \
       --skip-tags=nobuild,prompt,blockblock,home \
@@ -56,7 +55,6 @@ script:
   - |
     ansible-playbook \
       -vv \
-      --ask-become-pass \
       --extra-vars $EXTRA_VARS \
       --connection=local \
       --skip-tags=nobuild,prompt,blockblock,home \
