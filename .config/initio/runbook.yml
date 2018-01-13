@@ -69,5 +69,5 @@
       file:
         path: ~/.git
         state: absent
-
+      when: lookup('env','INITIO_TEST') is not defined or lookup('env','INITIO_TEST') != "true"
 

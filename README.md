@@ -24,7 +24,7 @@ Use the included [`bootstrap.sh`](.local/share/initio/bootstrap.sh) file to setu
 ❯ ./bootstrap.sh --skip-tags="home"
 ```
 
-The runbook will ask about the setup: laptop, workstation, headnode, fileserver, or compute node. Each type has its own playbook found in [`.config/initio/playbooks`](.config/initio/playbooks), useful for idividual push-deploys. Use the ansible `--tags|--skip-tags=` flag to provision as a home or work box. Tasks tagged **`home`** include personal configs and repos; `--skip-tags=home` will exclude personal info and only uses common settings and public repos -- *i.e.* a box configured for work _**without**_ your personal dropbox, github keys, or fileserver creds etc... 
+The runbook will ask about the setup: laptop, workstation, headnode, fileserver, or compute node. Each type has its own playbook found in [`.config/initio/playbooks`](.config/initio/playbooks), useful for individual push-deploys. Use the ansible `--tags|--skip-tags=` flag to provision as a home or work box. Tasks tagged **`home`** include personal configs and repos; `--skip-tags=home` will exclude personal info and only uses common settings and public repos -- *i.e.* a box configured for work _**without**_ your personal dropbox, github keys, or fileserver creds etc... 
 
 
 
@@ -48,7 +48,7 @@ Run Modes
 
 
 `--skip-tags=prompt,blockblock` useful for pushing out changes via ansible ssh
-`--tags=symlink` useful when you only need to upldate config links
+`--tags=symlink` useful when you only need to update config links
 `--tags=development` push out new dev tooling 
 
 Built with
@@ -159,6 +159,35 @@ These software packages are tighly controlled by their vendors and need manual i
 |         | [ ]   |        |         |Toggl        | https://toggl.com/
 |         |       |        | [ ]     |VMWare       | https://www.vmware.com/products/fusion.html
 
+
+Testing
+--------
+
+### Travis ###
+
+The included travis config checks syntax and smaller binary package installs. Any tasks requiring user intervention, security privileges, or large downloads are skipped.
+
+### Vagrant ###
+
+A full deployment test can be run against each spec'd target. `.config/initio/tests` contains a simplified `hosts` file and a `Vagrantfile` with configuration for provisioning those environments.
+
+**From the host os**
+```
+❯ vagrant up macos
+```
+
+**From the guest os**
+```
+❯ ~/.config/initio/tests/run_suite.sh
+```
+
+`run_suite.sh` will pass-through `ansible-playbook` arguments
+
+After provisioning the `development` role, the [ansible-toolbox](https://github.com/larsks/ansible-toolbox) should be available in the host allowing more granular testing/development.
+
+**Developing with vagrant**
+
+The `bootstrap.sh` script checks out the initio repo into the vagrant user's home. If you have the guest os's home dir shared/mounted on your host you can develop/test directly. If share mounting isn't working, which is the case for BSD, you can set the guest os's home dir as a git remote in the repo on your host, and "push to test".
 
 
 References

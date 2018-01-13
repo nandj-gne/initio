@@ -1,0 +1,28 @@
+
+
+$bootstrap = "../../../.local/share/initio/bootstrap.sh"
+
+Vagrant.configure("2") do |config|
+
+    config.vm.provision "shell", path: $bootstrap, env: {"INITIO_TEST" => "true"}, privileged: false
+    config.vm.synced_folder "../../../", "/vagrant", type: "rsync", disabled: true
+
+    config.vm.provider "virtualbox" do |virtualbox|
+        virtualbox.gui = 1
+    end
+
+    #
+    # MacOS
+    #
+    config.vm.define "macos", autostart: false do |macos|        
+        macos.vm.box = "emil-appunite/macos10.13-xcode9.1"
+        macos.vm.box_version = "1.0.0"
+    end
+
+    #
+    # Linux
+    #
+    config.vm.define "debian", autostart: false do |debian|
+        debian.vm.autostart = false
+    end
+end
