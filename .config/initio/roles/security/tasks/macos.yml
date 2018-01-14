@@ -59,6 +59,7 @@
         key: askForPasswordDelay
         type: int
         value: 0
+      ignore_errors: yes
 
 - name: Enable the automatic update check
   osx_defaults:
