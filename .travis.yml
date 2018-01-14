@@ -60,7 +60,7 @@ script:
       --skip-tags=nobuild,prompt,blockblock,home \
       -i .config/initio/tests/hosts \
       .config/initio/runbook.yml \
-      | tee -a ${idempotence}"
+      | tee -a ${idempotence}
   - |
     tail ${idempotence} \
     | grep -q '.*failed=0' \
