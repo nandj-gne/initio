@@ -35,7 +35,7 @@
 
 - command: mas account
   register: app_store_sigin
-  ignore_erros: yes
+  ignore_errors: yes
 
 - pause:
     prompt: Signin to the Apple App Store, then hit return to continue
