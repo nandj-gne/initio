@@ -12,7 +12,6 @@
         - gitkraken
         - vagrant
         - vagrant-manager
-        - virtualbox
         - kitematic
     - homebrew_cask: 
         name: "{{item}}"
@@ -21,6 +20,7 @@
         - wireshark
         - docker  
         - postgres
+        - virtualbox
       tags: [blockblock]
     - homebrew_cask:
         name: "{{item}}"
