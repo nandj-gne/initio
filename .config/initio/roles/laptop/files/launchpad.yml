@@ -125,6 +125,8 @@ app_layout:
           - Sublime Text
           - VMware Fusion
           - VirtualBox
+          - Docker
+          - Kitematic (Beta)
       
     - Google Play Music
     - Calendar
