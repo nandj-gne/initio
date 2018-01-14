@@ -49,6 +49,6 @@
 - gem:
     name: tmuxinator
     state: latest
-    environment:
-      GEM_HOME: "{{user_home}}/.local/share/gem"
+  environment:
+    GEM_HOME: "{{user_home}}/.local/share/gem"
 
