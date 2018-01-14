@@ -37,7 +37,7 @@
             dest: "{{sublime_text.user.path}}"
             state: link
           tags: [symlink]
-      when: not sublime_test_user_path.stat.islnk      
+      when: sublime_test_user_path.stat.islnk is not defined
   when: distro.macos
 
 
