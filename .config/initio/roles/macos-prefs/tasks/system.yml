@@ -142,3 +142,12 @@
     key: AppleShowScrollBars
     type: string
     value: "Automatic" 
+
+- name: Disable shadow when screen capturing a window
+  osx_defaults:
+    domain: com.apple.screencapture
+    key: disable-shadow
+    type: bool
+    value: true
+
+    
