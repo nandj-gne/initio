@@ -557,9 +557,9 @@
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>1409 110 445 333 0 0 1920 1178 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>49 685 796 473 0 0 1920 1178 </string>
+	<string>377 554 796 473 0 0 1920 1178 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>988 534 910 597 0 0 1920 1178 </string>
+	<string>240 433 910 597 0 0 1920 1178 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>364 490 910 597 0 0 1920 1178 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -880,7 +880,7 @@
 			<key>Custom Command</key>
 			<string>No</string>
 			<key>Custom Directory</key>
-			<string>No</string>
+			<string>Recycle</string>
 			<key>Default Bookmark</key>
 			<string>No</string>
 			<key>Description</key>
@@ -1616,7 +1616,7 @@
 			<key>Custom Command</key>
 			<string>No</string>
 			<key>Custom Directory</key>
-			<string>No</string>
+			<string>Recycle</string>
 			<key>Default Bookmark</key>
 			<string>No</string>
 			<key>Description</key>
@@ -2072,7 +2072,7 @@
 	<key>NoSyncInstallationId</key>
 	<string>5E75CD1C-110C-4D01-B773-4E1DCE9045D1</string>
 	<key>NoSyncLastTipTime</key>
-	<real>536898323.68212295</real>
+	<real>538619568.70886302</real>
 	<key>NoSyncNeverAskAboutSettingAlternateMouseScroll</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
@@ -2106,6 +2106,22 @@
 		<string>0017</string>
 		<string>0018</string>
 		<string>0019</string>
+		<string>0020</string>
+		<string>0021</string>
+		<string>0022</string>
+		<string>0023</string>
+		<string>0024</string>
+		<string>0025</string>
+		<string>0026</string>
+		<string>0027</string>
+		<string>0028</string>
+		<string>0029</string>
+		<string>0030</string>
+		<string>0031</string>
+		<string>0032</string>
+		<string>0033</string>
+		<string>0034</string>
+		<string>0035</string>
 	</array>
 	<key>OpenTmuxWindowsIn</key>
 	<integer>0</integer>
@@ -2153,7 +2169,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-01-06T19:31:58Z</date>
+	<date>2018-01-25T18:48:20Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>ShowBookmarkName</key>
