@@ -51,6 +51,7 @@
 - command: mas install {{item}}
   with_items:
     - 1160374471 # PiPifier
+    - 497799835 # Xcode
   tags: [nobuild, home, personal]
 
 - homebrew_cask:

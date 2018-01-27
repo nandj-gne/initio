@@ -127,6 +127,7 @@ app_layout:
           - VirtualBox
           - Docker
           - Kitematic (Beta)
+          - Xcode
       
     - Google Play Music
     - Calendar
