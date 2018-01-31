@@ -3,19 +3,18 @@
 	"installed_packages":
 	[
 		"AutoFileName",
+		"Boxy Theme",
 		"BracketHighlighter",
 		"ExportHtml",
 		"GenerateUUID",
 		"HexViewer",
+		"Package Control",
 		"PackageResourceViewer",
-		"PlistJsonConverter",
 		"Python Flake8 Lint",
 		"Python Improved",
 		"SideBarEnhancements",
-		"SideBarGit",
 		"SublimeCodeIntel",
-		"Tag",
 		"Terminal",
-		"Boxy Theme"
+		"SerializedDataConverter"
 	]
 }
