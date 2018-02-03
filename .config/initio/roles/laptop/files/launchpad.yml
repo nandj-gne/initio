@@ -18,6 +18,7 @@ app_layout:
           - FaceTime
           - Mail
           - Contacts
+          - Signal
       
     - folder_title: Photography
       folder_layout:
