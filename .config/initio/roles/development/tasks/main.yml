@@ -44,6 +44,16 @@
     executable: pip3
 
 #
+# Python
+#
+- pip:
+    name: "{{item}}"
+    executable: pip3
+  with_items:
+    - virtualenv
+    - virtualenvwrapper
+
+#
 # Ruby
 #
 - gem:

@@ -16,3 +16,7 @@ source "$XDG_CONFIG_HOME/zsh/zshenv"
 # Load helpers
 [[ -s ${ZDOTDIR}/aliases ]] && source ${ZDOTDIR}/aliases
 [[ -s ${ZDOTDIR}/functions ]] && source ${ZDOTDIR}/functions
+
+
+# Python helpers
+[[ -e /usr/local/bin/virtualenvwrapper.sh ]] && source /usr/local/bin/virtualenvwrapper.sh

@@ -83,3 +83,9 @@ alias ssh="ssh $SSH_CONFIG "
 export "GPG_TTY=$(tty)"
 export "SSH_AUTH_SOCK=${GNUPGHOME}/S.gpg-agent.ssh"
 
+
+#
+# Python
+#
+VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
+
