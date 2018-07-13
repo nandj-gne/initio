@@ -7,7 +7,7 @@ ansible_dir="$HOME/.config/initio"
 ansible-galaxy install -r "$ansible_dir/requirements.yml"
 
 # Syntax check
-ansible-playbook -i .config/initio/tests/hosts .config/initio/runbook.yml --syntax-check
+ansible-playbook -i "$ansible_dir/hosts" "$ansible_dir/runbook.yml" --syntax-check
 
 # Full test 
 time ansible-playbook \
