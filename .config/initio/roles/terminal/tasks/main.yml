@@ -3,7 +3,7 @@
 # Repo universe
 #
 - homebrew_tap:
-    name: caskroom/cask
+    name: homebrew/cask
   when: distro.macos
 
 
