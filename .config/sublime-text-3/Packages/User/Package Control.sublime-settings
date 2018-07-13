@@ -10,14 +10,15 @@
 		"BracketHighlighter",
 		"ExportHtml",
 		"GenerateUUID",
+		"Google Spell Check",
 		"HexViewer",
 		"Package Control",
 		"PackageResourceViewer",
 		"Python Flake8 Lint",
 		"Python Improved",
+		"SerializedDataConverter",
 		"SideBarEnhancements",
 		"SublimeCodeIntel",
-		"Terminal",
-		"SerializedDataConverter"
+		"Terminal"
 	]
 }
