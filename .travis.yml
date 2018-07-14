@@ -12,6 +12,11 @@ branches:
   only:
     - master
 
+notifications:
+  email:
+    on_success: change
+    on_failure: always
+
 env:
   global:
     - INITIO_TEST=true
