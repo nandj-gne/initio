@@ -48,10 +48,12 @@
 - name: Show icons for hard drives, servers, and removable media on the desktop
   osx_defaults:
     domain: com.apple.finder
-    key: "{{item}}"
+    key: "{{pref_key}}"
     type: bool
     value: true
-  with_items:
+  loop_control:
+    loop_var: pref_key
+  loop:
     - ShowExternalHardDrivesOnDesktop
     - ShowHardDrivesOnDesktop
     - ShowMountedServersOnDesktop

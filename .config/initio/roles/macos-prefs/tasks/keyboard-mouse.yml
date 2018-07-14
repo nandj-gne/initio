@@ -70,10 +70,12 @@
 - name: Mouse scroll
   osx_defaults:
     domain: com.apple.AppleMultitouchMouse
-    key: "{{item}}"
+    key: "{{pref_key}}"
     type: int
     value: 1
-  with_items:
+  loop_control:
+    loop_var: pref_key
+  loop:
     - MouseVerticalScroll
     - MouseMomentumScroll
     - MouseHorizontalScroll
@@ -119,10 +121,12 @@
 - name: Enable other multi-finger gestures
   osx_defaults:
     domain: com.apple.AppleMultitouchTrackpad
-    key: "{{item}}"
+    key: "{{pref_key}}"
     type: int
     value: 2
-  with_items:
+  loop_control:
+    loop_var: pref_key
+  loop:
     - TrackpadThreeFingerVertSwipeGesture
     - TrackpadFourFingerVertSwipeGesture
     - TrackpadFourFingerPinchGesture
