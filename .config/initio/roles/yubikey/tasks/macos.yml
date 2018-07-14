@@ -11,7 +11,7 @@
   become: true
 
 - homebrew_tap:
-    name: homebrew/drivers
+    name: homebrew/cask-drivers
 
 - homebrew:
     name: "{{item}}"
