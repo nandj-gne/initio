@@ -54,6 +54,7 @@
   shell: "source {{user_home}}/.zshrc && zmanage update"
   args:
      executable: "{{zsh_path.stdout}}"
+  ignore_errors: yes
 
 #
 # Symlink adhoc dotfiles
