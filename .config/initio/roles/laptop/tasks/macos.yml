@@ -39,7 +39,7 @@
 
 - pause:
     prompt: Signin to the Apple App Store, then hit return to continue
-  when: not (app_store_sigin.stdout | match("@"))
+  when: not (app_store_sigin.stdout is match("@"))
   tags: [nobuild, prompt]
 
 - name: Todoist
