@@ -30,6 +30,10 @@
         - pycharm
         - vmware-fusion
       tags: [nobuild]
+    - command: mas install {{item}}
+      with_items:
+        - 497799835 # Xcode
+      tags: [nobuild, bigdl]
     - include_role: name=terminal
     - include_role: name=sublime-text
     - include_tasks: macos-prefs.yml
