@@ -43,6 +43,7 @@ Run Modes
 |development | dev tooling |
 |home, personal | personal configs, secrets, and private repos |
 |nobuild     | skip tasks during automated builds, i.e. downloading large binaries |
+|bigdl       | large downloads |
 |pamlockout  | might cause fail secure lockouts |
 |prompt      | task raises a user prompt, cli/gui |
 |symlink     | symlink creations |
