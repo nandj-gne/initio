@@ -90,5 +90,6 @@
     - screensaver
     - authorization   
   become: true
+  when: new_yubikey_challenge is defined and (new_yubikey_challenge.user_input | match("^[Yy](es)?$"))
   tags: [pamlockout]
   
