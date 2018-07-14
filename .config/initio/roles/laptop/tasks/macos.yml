@@ -76,7 +76,6 @@
       with_items:
         - bettertouchtool
         - typora
-        - microsoft-office
         - rstudio
         - toggl
     - homebrew_cask:
@@ -84,7 +83,8 @@
         state: present
       with_items:
         - microsoft-office
-      tags: [blockblock]
+      ignore_errors: yes
+      tags: [bigdl blockblock]
   tags: [nobuild]
 
 
