@@ -13,11 +13,20 @@
     - dhs
     - gpg-suite
     - kextviewr
-    - keybase
     - knockknock
-    - private-internet-access
     - taskexplorer
     - whatsyoursign  
+
+- name: Personal security tools
+  block:
+    - homebrew_cask:
+        name: "{{item}}"
+        state: present
+      with_items:
+        - keybase
+        - private-internet-access
+  tags: [personal]
+
 
 - name: Desktop security tools
   block:
