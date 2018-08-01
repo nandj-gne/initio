@@ -13,7 +13,7 @@
 # ------------------ 
 # home        - personal configs, secrets, and private repos
 # personal
-# nobuild     - skip task during autoamted builds
+# nobuild     - skip task during automated builds
 # prompt      - task raises a user prompt
 # blockblock  - task raises a security dialog (macos)
 # development - dev tooling
