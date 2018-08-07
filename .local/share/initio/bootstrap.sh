@@ -5,7 +5,7 @@
 # doc: https://docs.ansible.com/ansible/latest/intro_installation.html
 #
 
-initio_repo="https://github.com/jnand/initio.git"
+initio_repo="${INITIO_REPO:-https://github.com/jnand/initio.git}"
 branch="${INITIO_BRANCH:-master}"
 system_type=$(uname -s)
 ansible_dir="$HOME/.config/initio"
@@ -61,7 +61,7 @@ fi
 if ! [ -f "$ansible_dir/runbook.yml" ]; then
     cd $HOME
     git init .
-    git remote add origin $initio_repo
+    git remote add origin "$initio_repo"
     git pull origin $branch
     git checkout $branch
 fi

@@ -16,7 +16,7 @@
 #
 # See: playbooks/preflight.yml for ENV overrides
 
-# initio_repo: 
+# initio_repo:
 # initio_branch:
 # intitio_test:
 # intitio_yadm:
