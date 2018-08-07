@@ -1,7 +1,23 @@
 ---
 
+#
+# Var names for deploy specific configs
+#
+
 # computername: mylaptop
 # ssh_secrets_key: /tmp/id_rsa
 # secrets_repo: git@github.com:my/secrets.git
 # keepass_db_path: ~/Dropbox/Secure
 # keepass_database: keypass.kdbx
+
+
+#
+# Useful configs for dev work
+#
+# See: playbooks/preflight.yml for ENV overrides
+
+# initio_repo: 
+# initio_branch:
+# intitio_test:
+# intitio_yadm:
+# intitio_zim
