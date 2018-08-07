@@ -32,3 +32,32 @@
       debian: true
   when: ansible_distribution in distros.debian
   
+
+#
+# ENV overrides
+#
+- name: INITIO_REPO
+  set_fact:
+    initio_repo: "{{lookup('env', INITIO_REPO) | default(initio.repo)}}"
+  when: not initio_repo
+
+- name: INITIO_BRANCH
+  set_fact:
+    initio_branch: "{{lookup('env', INITIO_BRANCH) | default(initio.branch)}}"
+  when: not initio_branch
+
+- name: INITIO_TEST
+  set_fact:
+    initio_test: "{{lookup('env', INITIO_TEST) | default(false)}}"
+
+- name: INITIO_YADM
+  set_fact:
+    initio_yadm: "{{lookup('env', INITIO_YADM) | default(initio.yadm.repo)}}"
+  when: not initio_yadm
+
+- name: INITIO_ZIM
+  set_fact:
+    initio_zim: "{{lookup('env', INITIO_ZIM) | default(initio.zim.repo)}}"
+  when: not initio_zim
+
+
