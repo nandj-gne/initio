@@ -38,26 +38,26 @@
 #
 - name: INITIO_REPO
   set_fact:
-    initio_repo: "{{lookup('env', INITIO_REPO) | default(initio.repo)}}"
+    initio_repo: "{{lookup('env', 'INITIO_REPO') | default(initio.repo)}}"
   when: initio_repo is undefined
 
 - name: INITIO_BRANCH
   set_fact:
-    initio_branch: "{{lookup('env', INITIO_BRANCH) | default(initio.branch)}}"
+    initio_branch: "{{lookup('env', 'INITIO_BRANCH') | default(initio.branch)}}"
   when: initio_branch is undefined
 
 - name: INITIO_TEST
   set_fact:
-    initio_test: "{{lookup('env', INITIO_TEST) | default(false)}}"
+    initio_test: "{{lookup('env', 'INITIO_TEST') | default(false)}}"
 
 - name: INITIO_YADM
   set_fact:
-    initio_yadm: "{{lookup('env', INITIO_YADM) | default(initio.yadm.repo)}}"
+    initio_yadm: "{{lookup('env', 'INITIO_YADM') | default(initio.yadm.repo)}}"
   when: initio_yadm is undefined
 
 - name: INITIO_ZIM
   set_fact:
-    initio_zim: "{{lookup('env', INITIO_ZIM) | default(initio.zim.repo)}}"
+    initio_zim: "{{lookup('env', 'INITIO_ZIM') | default(initio.zim.repo)}}"
   when: initio_zim is undefined
 
 
