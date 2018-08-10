@@ -1,0 +1,25 @@
+---
+
+- name: Remove git dir from boostrap checkout
+  file:
+    path: ~/.git
+    state: absent
+  when: lookup('env','INITIO_TEST') is not defined or lookup('env','INITIO_TEST') != "true"
+
+
+#
+# MacOS
+#
+
+- name: MacOS postflights
+  block:
+    - name: Enable GateKeeper
+      command: spctl --master-enable
+      become: yes
+  when: distro.macos
+
+
+#
+# Linux
+#
+

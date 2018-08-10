@@ -61,3 +61,15 @@
   when: initio_zim is undefined
 
 
+
+#
+# MacOS
+#
+
+- name: MacOS preflights
+  block:
+    - name: Enable GateKeeper
+      command: spctl --master-disable
+      become: yes
+  when: distro.macos
+

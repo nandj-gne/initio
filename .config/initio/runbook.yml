@@ -66,9 +66,6 @@
 # Cleanup
 #
   post_tasks:
-    - name: Remove git dir from boostrap checkout
-      file:
-        path: ~/.git
-        state: absent
-      when: lookup('env','INITIO_TEST') is not defined or lookup('env','INITIO_TEST') != "true"
+    - name: "Postflight tasks"
+      include_tasks: playbooks/postflight.yml
 
