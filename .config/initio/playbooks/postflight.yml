@@ -1,5 +1,16 @@
 ---
 
+
+#
+# Notifier
+# ----------
+# These listeners are called after all roles, and before provisioner exit tasks
+
+- name: Notify postflight listeners
+  command: echo "postflight listeners"
+  notify: "postflight"
+
+
 #
 # Provisioner finalizations
 #

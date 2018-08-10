@@ -39,8 +39,15 @@
         - cryptomator
         - dnscrypt
         - keepassxc
-        - blockblock
   when: endpoint_type == "desktop"
+
+- name: BlockBlock rouge config trapping
+  homebrew_cask:
+      name: blockblock
+      state: present
+  when: endpoint_type == "desktop"
+  listen: "postflight"
+
 
 - name: Pf GUI manager
   block:
