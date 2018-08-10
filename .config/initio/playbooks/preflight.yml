@@ -68,8 +68,10 @@
 
 - name: MacOS preflights
   block:
-    - name: Enable GateKeeper
-      command: spctl --master-disable
-      become: yes
+    - name: Disable GateKeeper
+      command: spctl --master-disable      
+    - name: Disable KextConsent
+      command: spctl kext-consent disable
+  become: yes
   when: distro.macos
 

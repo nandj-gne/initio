@@ -1,5 +1,9 @@
 ---
 
+#
+# Provisioner finalizations
+#
+
 - name: Remove git dir from boostrap checkout
   file:
     path: ~/.git
@@ -15,11 +19,12 @@
   block:
     - name: Enable GateKeeper
       command: spctl --master-enable
-      become: yes
+    - name: Enable KextConsent
+      command: spctl kext-consent enable
+  become: yes
   when: distro.macos
 
 
 #
 # Linux
 #
-
