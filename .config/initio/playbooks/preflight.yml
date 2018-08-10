@@ -70,8 +70,6 @@
   block:
     - name: Disable GateKeeper
       command: spctl --master-disable      
-    - name: Disable KextConsent
-      command: spctl kext-consent disable
-  become: yes
+      become: yes
   when: distro.macos
 
