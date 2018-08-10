@@ -30,9 +30,7 @@
   block:
     - name: Enable GateKeeper
       command: spctl --master-enable
-    - name: Enable KextConsent
-      command: spctl kext-consent enable
-  become: yes
+      become: yes
   when: distro.macos
 
 
