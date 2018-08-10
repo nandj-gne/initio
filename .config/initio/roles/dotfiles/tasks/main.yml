@@ -35,7 +35,10 @@
   register: yadm_repo
 
 - name: Load initio from repo
-  shell: "{{yadm.bin}} -Y {{yadm.dir}} clone -b {{initio_branch}} {{initio_repo}}"
+  shell: |
+    {{yadm.bin}} -Y {{yadm.dir}} clone "{{initio_repo}}"
+    {{yadm.bin}} -Y {{yadm.dir}} reset --hard origin/{{initio_branch}}
+    {{yadm.bin}} -Y {{yadm.dir}} checkout {{initio_branch}}
   when: not yadm_repo.stat.exists and not cached_repo.stat.exists
 
 - name: Load initio from local cache
