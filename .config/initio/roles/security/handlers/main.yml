@@ -1,7 +1,11 @@
 ---
 
-- name: postflight  
+
+#
+# MacOS
+#
+
+- name: mac postflight  
   homebrew_cask:
     name: blockblock
     state: present
-  when: endpoint_type == "desktop"

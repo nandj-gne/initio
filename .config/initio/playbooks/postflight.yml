@@ -8,7 +8,8 @@
 
 - name: Notify postflight listeners
   command: echo "postflight listeners"
-  notify: "postflight"
+  notify: "macos postflight"
+  when: distro.macos
 
 
 #
