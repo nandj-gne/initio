@@ -20,7 +20,8 @@
         - wireshark
         - docker  
         - postgres
-        - virtualbox
+        - virtualbox # cant automate without deactiving SIP which needs a reboot
+      ignore_errors: yes  
       tags: [blockblock]
     - homebrew_cask:
         name: "{{item}}"
