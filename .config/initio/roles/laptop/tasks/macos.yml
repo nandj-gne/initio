@@ -94,7 +94,7 @@
         dest: "{{user_home}}/Downloads/samsung-t3-installer.pkg"
     - command: "installer -pkg {{user_home}}/Downloads/samsung-t3-installer.pkg -target /"
       become: true
-  tags: [prompt, nobuild]
+  tags: [prompt, nobuild, personal]
 
 
 # Uses macbuilds launcpad helper script
