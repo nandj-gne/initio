@@ -83,7 +83,7 @@
       with_items:
         - microsoft-office
       ignore_errors: yes
-      tags: [bigdl blockblock]
+      tags: [bigdl, blockblock]
   tags: [nobuild]
 
 
