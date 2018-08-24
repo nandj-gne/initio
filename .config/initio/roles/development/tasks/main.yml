@@ -64,6 +64,7 @@
 - gem:
     name: tmuxinator
     state: latest
+  ignore_errors: yes
   environment:
     GEM_HOME: "{{user_home}}/.local/share/gem"
 
