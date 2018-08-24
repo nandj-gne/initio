@@ -3,6 +3,16 @@
 # Developer
 #
 
+# see: https://apple.stackexchange.com/questions/4813/changing-modifier-keys-from-the-command-line
+- name: Remap CapsLock to Esc
+  command: >
+    defaults -currentHost write -g
+    com.apple.keyboard.modifiermapping.1452-632-0
+    '({
+        HIDKeyboardModifierMappingDst = 30064771113;
+        HIDKeyboardModifierMappingSrc = 30064771129;
+    })'
+
 - osx_defaults:
     domain: com.apple.Safari
     key: IncludeInternalDebugMenu

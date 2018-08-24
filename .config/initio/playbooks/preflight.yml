@@ -32,3 +32,44 @@
       debian: true
   when: ansible_distribution in distros.debian
   
+
+#
+# ENV overrides
+#
+- name: INITIO_REPO
+  set_fact:
+    initio_repo: "{{lookup('env', 'INITIO_REPO') | default(initio.repo, true)}}"
+  when: initio_repo is undefined
+
+- name: INITIO_BRANCH
+  set_fact:
+    initio_branch: "{{lookup('env', 'INITIO_BRANCH') | default(initio.branch, true)}}"
+  when: initio_branch is undefined
+
+- name: INITIO_TEST
+  set_fact:
+    initio_test: "{{lookup('env', 'INITIO_TEST') | default(false, true)}}"
+
+- name: INITIO_YADM
+  set_fact:
+    initio_yadm: "{{lookup('env', 'INITIO_YADM') | default(initio.yadm.repo, true)}}"
+  when: initio_yadm is undefined
+
+- name: INITIO_ZIM
+  set_fact:
+    initio_zim: "{{lookup('env', 'INITIO_ZIM') | default(initio.zim.repo, true)}}"
+  when: initio_zim is undefined
+
+
+
+#
+# MacOS
+#
+
+- name: MacOS preflights
+  block:
+    - name: Disable GateKeeper
+      command: spctl --master-disable      
+      become: yes
+  when: distro.macos
+

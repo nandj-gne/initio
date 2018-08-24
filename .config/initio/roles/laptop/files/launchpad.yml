@@ -18,6 +18,7 @@ app_layout:
           - FaceTime
           - Mail
           - Contacts
+          - Signal
       
     - folder_title: Photography
       folder_layout:
@@ -127,6 +128,7 @@ app_layout:
           - VirtualBox
           - Docker
           - Kitematic (Beta)
+          - Xcode
       
     - Google Play Music
     - Calendar
@@ -137,6 +139,7 @@ app_layout:
     - Calculator  
     - Qbserve    
     - TogglDesktop
+    - Day One
     
 
 

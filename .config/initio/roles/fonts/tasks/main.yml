@@ -13,7 +13,7 @@
 - name: Install Source Code Pro
   block:
   - homebrew_tap:
-      name: caskroom/fonts
+      name: homebrew/cask-fonts
   - homebrew_cask:
       name: font-source-code-pro
       state: present

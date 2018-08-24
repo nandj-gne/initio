@@ -11,7 +11,7 @@
   become: true
 
 - homebrew_tap:
-    name: caskroom/drivers
+    name: homebrew/cask-drivers
 
 - homebrew:
     name: "{{item}}"
@@ -72,7 +72,7 @@
         path: "{{item}}"
       with_fileglob:
         - "~/.yubico/challenge-*"
-  when: new_yubikey_challenge is defined and (new_yubikey_challenge.user_input | match("^[Yy](es)?$"))
+  when: new_yubikey_challenge is defined and (new_yubikey_challenge.user_input is match("^[Yy](es)?$"))
   tags: [nobuild]
 
 
@@ -90,5 +90,6 @@
     - screensaver
     - authorization   
   become: true
+  when: new_yubikey_challenge is defined and (new_yubikey_challenge.user_input is match("^[Yy](es)?$"))
   tags: [pamlockout]
   

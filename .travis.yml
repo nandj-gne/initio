@@ -12,6 +12,11 @@ branches:
   only:
     - master
 
+notifications:
+  email:
+    on_success: change
+    on_failure: always
+
 env:
   global:
     - INITIO_TEST=true
@@ -45,7 +50,7 @@ script:
       -vv \
       --extra-vars $EXTRA_VARS \
       --connection=local \
-      --skip-tags=nobuild,prompt,blockblock,home \
+      --skip-tags="nobuild,prompt,blockblock,home,bigdl" \
       -i .config/initio/tests/hosts \
       .config/initio/runbook.yml
 

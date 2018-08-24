@@ -25,7 +25,7 @@ Use the included [`bootstrap.sh`](.local/share/initio/bootstrap.sh) file to setu
 ❯ ./bootstrap.sh --skip-tags="home"
 ```
 
-The runbook will ask about the setup: laptop, workstation, headnode, fileserver, or compute node. Each type has its own playbook found in [`.config/initio/playbooks`](.config/initio/playbooks), useful for individual push-deploys. Use the ansible `--tags|--skip-tags=` flag to provision as a home or work box. Tasks tagged **`home`** include personal configs and repos; `--skip-tags=home` will exclude personal info and only uses common settings and public repos -- *i.e.* a box configured for work _**without**_ your personal dropbox, github keys, or fileserver creds etc... 
+The runbook will ask about the setup: laptop, workstation, headnode, fileserver, or compute node. Each type has its own role found in [`.config/initio/roles`](.config/initio/roles), useful for individual push-deploys. Use the ansible `--tags|--skip-tags=` flag to provision as a home or work box. Tasks tagged **`home`** include personal configs and repos; `--skip-tags=home` will exclude personal info and only uses common settings and public repos -- *i.e.* a box configured for work _**without**_ your personal dropbox, github keys, or fileserver creds etc... 
 
 
 
@@ -43,6 +43,7 @@ Run Modes
 |development | dev tooling |
 |home, personal | personal configs, secrets, and private repos |
 |nobuild     | skip tasks during automated builds, i.e. downloading large binaries |
+|bigdl       | large downloads |
 |pamlockout  | might cause fail secure lockouts |
 |prompt      | task raises a user prompt, cli/gui |
 |symlink     | symlink creations |
@@ -187,6 +188,35 @@ After provisioning the `development` role, the [ansible-toolbox](https://github.
 **Developing with vagrant**
 
 The `bootstrap.sh` script checks out the initio repo into the vagrant user's home. If you have the guest os's home dir shared/mounted on your host you can develop/test directly. If share mounting isn't working, which is the case for BSD, you can set the guest os's home dir as a git remote in the repo on your host, and "push to test", a post-receive githook should catch the push and start ansible on the vm. _Note_ your ssh public key will need to be added to the vagrant user's authorized keys for this to work.
+
+**Boostrapping the base tools**
+
+
+_ENV vars for development_
+
+| ENVar         | Description | 
+|:-------------:|:-------:|
+| INITIO_REPO   | repository uri/path |
+| INITIO_BRANCH | git branch name |
+| INITIO_TEST   | prevent bootstrap.sh from running the playbook |
+| INITIO_YADM   | git repo uri/path | 
+| INITIO_ZIM    | git repo uri/path |
+
+
+To setup a VM without automatically running the playbook
+
+
+```
+INITIO_BRANCH=dev INITIO_TEST=true  ./bootstrap.sh --skip-tags="home"
+```
+
+To run the test suite
+```
+INITIO_REPO=/vm_shared/path INITIO_BRANCH=dev run_suite.sh --skip-tags="bigdl"
+```
+
+
+
 
 
 

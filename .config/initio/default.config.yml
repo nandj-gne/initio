@@ -13,7 +13,8 @@
 # ------------------ 
 # home        - personal configs, secrets, and private repos
 # personal
-# nobuild     - skip task during autoamted builds
+# bigdl       - large binaries/installers 
+# nobuild     - skip task during automated builds
 # prompt      - task raises a user prompt
 # blockblock  - task raises a security dialog (macos)
 # development - dev tooling
@@ -27,8 +28,11 @@
 #
 # Initio configs
 # -----------
+# see: config.yml for deploy specifc configs
+
 initio:
   repo: "https://github.com/jnand/initio.git"
+  branch: "master"
 
   # location of bootstrap cache files
   tmp: "/tmp/initio"

@@ -1,0 +1,40 @@
+---
+
+
+#
+# Notifier
+# ----------
+# These listeners are called after all roles, and before provisioner exit tasks
+
+- name: Notify postflight listeners
+  command: echo "postflight listeners"
+  notify: "macos postflight"
+  when: distro.macos
+
+
+#
+# Provisioner finalizations
+#
+
+- name: Remove git dir from boostrap checkout
+  file:
+    path: ~/.git
+    state: absent
+  when: lookup('env','INITIO_TEST') is not defined or lookup('env','INITIO_TEST') != "true"
+
+
+#
+# MacOS
+#
+
+- name: MacOS postflights
+  block:
+    - name: Enable GateKeeper
+      command: spctl --master-enable
+      become: yes
+  when: distro.macos
+
+
+#
+# Linux
+#

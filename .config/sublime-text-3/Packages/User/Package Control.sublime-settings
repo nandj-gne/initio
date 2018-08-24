@@ -1,20 +1,24 @@
 {
-    "installed_packages":
-    [
-        "AutoFileName",
-        "BracketHighlighter",
-        "ExportHtml",
-        "GenerateUUID",
-        "HexViewer",
-        "PackageResourceViewer",
-        "PlistJsonConverter",
-        "Python Flake8 Lint",
-        "Python Improved",
-        "SideBarEnhancements",
-        "SideBarGit",
-        "SublimeCodeIntel",
-        "Tag",
-        "Terminal",
-        "Boxy Theme"
-    ]
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"AutoFileName",
+		"Boxy Theme",
+		"BracketHighlighter",
+		"ExportHtml",
+		"GenerateUUID",
+		"Google Spell Check",
+		"HexViewer",
+		"Package Control",
+		"PackageResourceViewer",
+		"Python Flake8 Lint",
+		"Python Improved",
+		"SerializedDataConverter",
+		"SideBarEnhancements",
+		"SublimeCodeIntel",
+		"Terminal"
+	]
 }

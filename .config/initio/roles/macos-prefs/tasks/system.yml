@@ -59,30 +59,36 @@
 - name: Disable smart chars
   osx_defaults:
     domain: NSGlobalDomain
-    key: "{{item}}"
+    key: "{{pref_key}}"
     type: bool
     value: false
-  with_items:
+  loop_control:
+    loop_var: pref_key
+  loop:
     - NSAutomaticQuoteSubstitutionEnabled
     - NSAutomaticDashSubstitutionEnabled
 
 - name: Expand save panel by default
   osx_defaults:
     domain: NSGlobalDomain
-    key: "{{item}}"
+    key: "{{pref_key}}"
     type: bool
     value: true
-  with_items:
+  loop_control:
+    loop_var: pref_key    
+  loop:
     - NSNavPanelExpandedStateForSaveMode
     - NSNavPanelExpandedStateForSaveMode2
 
 - name: Expand print panel by default
   osx_defaults:
     domain: NSGlobalDomain
-    key: "{{item}}"
+    key: "{{pref_key}}"
     type: bool
     value: true
-  with_items:
+  loop_control:
+    loop_var: pref_key
+  loop:
     - PMPrintingExpandedStateForPrint
     - PMPrintingExpandedStateForPrint2
 
@@ -142,3 +148,12 @@
     key: AppleShowScrollBars
     type: string
     value: "Automatic" 
+
+- name: Disable shadow when screen capturing a window
+  osx_defaults:
+    domain: com.apple.screencapture
+    key: disable-shadow
+    type: bool
+    value: true
+
+    

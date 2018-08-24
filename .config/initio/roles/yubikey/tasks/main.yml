@@ -5,4 +5,4 @@
 #
 - block:
     - include_tasks: macos.yml
-  when: distro.mac
+  when: distro.macos

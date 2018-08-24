@@ -20,7 +20,8 @@
         - wireshark
         - docker  
         - postgres
-        - virtualbox
+        - virtualbox # cant automate without deactiving SIP which needs a reboot
+      ignore_errors: yes  
       tags: [blockblock]
     - homebrew_cask:
         name: "{{item}}"
@@ -30,6 +31,10 @@
         - pycharm
         - vmware-fusion
       tags: [nobuild]
+    - command: mas install {{item}}
+      with_items:
+        - 497799835 # Xcode
+      tags: [nobuild, bigdl]
     - include_role: name=terminal
     - include_role: name=sublime-text
     - include_tasks: macos-prefs.yml
@@ -44,11 +49,22 @@
     executable: pip3
 
 #
+# Python
+#
+- pip:
+    name: "{{item}}"
+    executable: pip3
+  with_items:
+    - virtualenv
+    - virtualenvwrapper
+
+#
 # Ruby
 #
 - gem:
     name: tmuxinator
     state: latest
+  ignore_errors: yes
   environment:
     GEM_HOME: "{{user_home}}/.local/share/gem"
 

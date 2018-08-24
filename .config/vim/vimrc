@@ -3,7 +3,7 @@ set nocompatible
 
 " Append vim runtime path
 let &rtp.=",$XDG_CONFIG_HOME/vim"
-set viminfo="$XDG_CACHE_HOME/viminfo"
+set viminfo="1000,n~$XDG_CACHE_HOME/viminfo"
 
 " Use the Solarized Dark theme
 set background=dark

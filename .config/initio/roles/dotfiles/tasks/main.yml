@@ -6,12 +6,12 @@
 
 - name: Clone yadm
   git: >
-    repo={{initio.yadm.repo}}
+    repo={{initio_yadm}}
     dest="{{xdg.local}}/lib/yadm"
 
 - name: Clone Zim
   git: >
-    repo={{initio.zim.repo}}
+    repo={{initio_zim}}
     dest="{{xdg.config}}/zsh/zim"
 
 - name: Link yadm bin
@@ -35,7 +35,10 @@
   register: yadm_repo
 
 - name: Load initio from repo
-  shell: "{{yadm.bin}} -Y {{yadm.dir}} clone {{initio.repo}}"
+  shell: |
+    {{yadm.bin}} -Y {{yadm.dir}} clone "{{initio_repo}}"
+    {{yadm.bin}} -Y {{yadm.dir}} reset --hard origin/{{initio_branch}}
+    {{yadm.bin}} -Y {{yadm.dir}} checkout {{initio_branch}}
   when: not yadm_repo.stat.exists and not cached_repo.stat.exists
 
 - name: Load initio from local cache
@@ -44,7 +47,7 @@
     - shell: |
         cd ~
         {{yadm.bin}} -Y {{yadm.dir}} remote remove origin
-        {{yadm.bin}} -Y {{yadm.dir}} remote add origin {{initio.repo}}
+        {{yadm.bin}} -Y {{yadm.dir}} remote add origin {{initio_repo}}
   when: not yadm_repo.stat.exists and cached_repo.stat.exists
 
 - shell: "which zsh"
@@ -54,6 +57,7 @@
   shell: "source {{user_home}}/.zshrc && zmanage update"
   args:
      executable: "{{zsh_path.stdout}}"
+  ignore_errors: yes
 
 #
 # Symlink adhoc dotfiles

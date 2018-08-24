@@ -11,7 +11,7 @@ Vagrant.configure("2") do |config|
     config.vm.provision "file", source: "./git-hooks/post-receive", destination: "~/.git/hooks/post-receive"
 
     # Shared dir, if provider supports it
-    config.vm.synced_folder "../../../", "/vagrant", type: "rsync", disabled: true
+    config.vm.synced_folder "../../../", "/vagrant", type: "rsync" #, disabled: true
 
     #
     # Provider
